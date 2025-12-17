@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Visual de EPI - Equipos de Protección Individual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-1: #FF6B6B;
+            --color-2: #4ECDC4;
+            --color-3: #FFD166;
+            --color-4: #06D6A0;
+            --color-5: #118AB2;
+            --color-6: #EF476F;
+            --color-7: #7209B7;
+            --color-8: #3A86FF;
+            --color-9: #FB5607;
+            --color-10: #8338EC;
+            --color-11: #FF006E;
+            --color-12: #FF9E00;
+            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-header: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FFD166, #06D6A0, #118AB2);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 2400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header espectacular */
+        .hero-header {
+            background: var(--gradient-header);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: gradientAnimation 10s ease infinite;
+            background-size: 400% 400%;
+        }
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .hero-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
+        }
+        
+        .hero-header p {
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+        
+        /* Navegación visual */
+        .visual-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 30px;
+            box-shadow: var(--shadow-card);
+            max-width: 1600px;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 120px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .nav-icon {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        /* Sistema de tarjetas visuales */
+        .visual-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin: 3rem 0;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .visual-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .visual-card {
+            max-width: 600px;
+            flex: 1 1 550px;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .visual-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .card-header {
+            padding: 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .card-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        /* Secciones dentro de las tarjetas */
+        .card-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px dashed #eee;
+        }
+        
+        .card-section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        /* Elementos visuales especiales */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1rem 0;
+            justify-content: center;
+        }
+        
+        .tag {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .visual-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .visual-list li {
+            padding: 0.8rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .visual-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.2rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Cajas especiales */
+        .warning-box, .danger-box, .info-box, .success-box {
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+            border-left: 8px solid #FF9800;
+        }
+        
+        .danger-box {
+            background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+            border-left: 8px solid #F44336;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-left: 8px solid #2196F3;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-left: 8px solid #4CAF50;
+        }
+        
+        .box-icon {
+            font-size: 2rem;
+            min-width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* Footer visual */
+        .visual-footer {
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 5rem;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .visual-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 0L0 0 892.25 114.72 1200 0z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        /* Botón flotante */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-6), var(--color-1));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(239, 71, 111, 0.5);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            border: none;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 71, 111, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(239, 71, 111, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 71, 111, 0); }
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+        
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .hero-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-header p {
+                font-size: 1.2rem;
+            }
+            
+            .logo-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .visual-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-title {
+                font-size: 1.8rem;
+            }
+            
+            .visual-nav {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Estilos para tablas */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .info-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .info-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .info-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        /* Estilos para grids dentro de secciones */
+        .grid-2-col, .grid-3-col {
+            display: grid;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .grid-2-col {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3-col {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Estilos para subtítulos dentro de secciones */
+        .section-subtitle {
+            color: var(--color-2);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Mejoras para visual-list con colores variables */
+        .visual-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-left: 4px solid;
+            margin-bottom: 0.5rem;
+            border-radius: 0 8px 8px 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+        }
+
+        /* Estilos para iconos dentro de boxes */
+        .box-icon {
+            min-width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        /* Estilos para jerarquías de clasificación */
+        .design-hierarchy, .function-hierarchy {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .design-category, .function-category {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid;
+            transition: transform 0.3s ease;
+        }
+
+        .design-category:hover {
+            transform: translateX(5px);
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .category-title i {
+            font-size: 1.3rem;
+        }
+
+        .category-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .category-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .hierarchy-tag {
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .hierarchy-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Para funcionamiento */
+        .subcategory {
+            margin-top: 1.2rem;
+            padding-left: 1.5rem;
+            border-left: 2px dashed #ddd;
+        }
+
+        .subcategory-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .subcategory-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .feature-badge {
+            background: rgba(0, 0, 0, 0.04);
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la clasificación compacta */
+        .compact-classification {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .classification-group h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+            color: var(--color-5);
+            font-size: 1.1rem;
+        }
+
+        .compact-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .compact-list li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .compact-list li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-5);
+            font-weight: bold;
+        }
+
+        .compact-list ul {
+            list-style: none;
+            padding-left: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        .compact-list ul li:before {
+            content: '◦';
+            color: var(--color-2);
+        }
+
+        /* Para responsividad */
+        @media (max-width: 768px) {
+            .compact-classification {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .category-items {
+                flex-direction: column;
+            }
+            
+            .hierarchy-tag {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .design-category, .function-category {
+                padding: 1.2rem;
+            }
+        }
+
+        /* Responsividad mejorada para tablas */
+        @media (max-width: 768px) {
+            .info-table {
+                font-size: 0.85rem;
+            }
+            
+            .info-table th, .info-table td {
+                padding: 0.6rem;
+            }
+            
+            .grid-2-col, .grid-3-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animaciones para elementos que se añaden */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .visual-card .card-section {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .visual-card .card-section:nth-child(1) { animation-delay: 0.1s; }
+        .visual-card .card-section:nth-child(2) { animation-delay: 0.2s; }
+        .visual-card .card-section:nth-child(3) { animation-delay: 0.3s; }
+        .visual-card .card-section:nth-child(4) { animation-delay: 0.4s; }
+        .visual-card .card-section:nth-child(5) { animation-delay: 0.5s; }
+        .visual-card .card-section:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Estilos para prestaciones de oculares */
+        .compact-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border-radius: 15px;
+            border-left: 4px solid;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .mini-tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .compact-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-item {
+                padding: 0.8rem;
+            }
+        }
+
+
+        /* Estilos para tarjeta horizontal eléctrica */
+        .horizontal-card {
+            flex: 1 1 100% !important;
+            max-width: 100% !important;
+        }
+        
+        .horizontal-card .card-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+        
+        .horizontal-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .horizontal-section {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid;
+        }
+        
+        .horizontal-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            color: #333;
+        }
+        
+        .horizontal-section .section-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .horizontal-tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 1rem 0;
+        }
+        
+        .horizontal-tag {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .horizontal-info-box {
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividad para horizontal */
+        @media (max-width: 1200px) {
+            .horizontal-card .card-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .horizontal-grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .horizontal-card .card-content {
+                padding: 1.5rem;
+            }
+            
+            .horizontal-section {
+                padding: 1.2rem;
+            }
+        }
+
+        /* Estilos para diseño original de ropa de protección */
+        .design-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .design-type {
+            background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.9));
+            padding: 1.2rem;
+            border-radius: 15px;
+            border-left: 4px solid;
+        }
+
+        .design-type:first-child {
+            border-left-color: var(--color-8);
+        }
+
+        .design-type:last-child {
+            border-left-color: var(--color-4);
+        }
+
+        .design-type h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .special-notes {
+            margin-top: 1.5rem;
+        }
+
+        /* Ajustes para etiquetas en contenedor */
+        .tag-container {
+            margin: 1.2rem 0;
+        }
+
+        .tag-container .tag {
+            margin: 0.4rem;
+            padding: 0.6rem 1rem;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .design-overview {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .design-type {
+                padding: 1rem;
+            }
+        }
+
+        /* Estilos para dos columnas en listas de aspectos clave */
+        .two-column-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.2rem 0;
+        }
+
+        .compact-visual-list {
+            font-size: 0.9rem;
+        }
+
+        .compact-visual-list li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            border-left-width: 4px;
+            border-left-style: solid;
+            margin-bottom: 0.5rem;
+            border-radius: 0 8px 8px 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+        }
+
+        /* Para mantener los colores definidos por --li-color */
+        .compact-visual-list li {
+            border-left-color: var(--li-color);
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .two-column-list {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .compact-visual-list {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Estilos para versión compacta de protección frente al ahogamiento */
+.flotation-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.flotation-compact-item {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.flotation-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.flotation-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.flotation-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.flotation-content {
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.flotation-content p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.compact-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+}
+
+.compact-level {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem;
+    background: white;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.level-badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    min-width: 50px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Ajustes para listas en dos columnas */
+.two-column-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.2rem 0;
+}
+
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .flotation-compact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .two-column-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .compact-level {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header visual -->
+    <header class="hero-header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-1), var(--color-6));">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-2), var(--color-5));">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-3), var(--color-12));">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-4), var(--color-8));">
+                    <i class="fas fa-first-aid"></i>
+                </div>
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-7), var(--color-10));">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+            </div>
+            
+            <h1>GUÍA VISUAL COMPLETA DE EPI</h1>
+            <p>Equipos de Protección Individual - Información visual completa para selección, uso y mantenimiento según normativa INSST</p>
+        </div>
+    </header>
+    
+    <!-- Navegación visual -->
+    <div class="container">
+        <div class="visual-nav">
+            <a href="#respiratoria" class="nav-item" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-1), var(--color-6));">
+                    <i class="fas fa-lungs"></i>
+                </div>
+                <span>Respiratoria</span>
+            </a>
+            
+            <a href="#pies" class="nav-item" style="background: linear-gradient(135deg, #E8F8F7, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-2), var(--color-5));">
+                    <i class="fas fa-shoe-prints"></i>
+                </div>
+                <span>Pies/Piernas</span>
+            </a>
+            
+            <a href="#cabeza" class="nav-item" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-3), var(--color-12));">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <span>Cabeza</span>
+            </a>
+            
+            <a href="#ocular" class="nav-item" style="background: linear-gradient(135deg, #E8F7F2, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-4), var(--color-8));">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <span>Ocular/Facial</span>
+            </a>
+            
+            <a href="#auditiva" class="nav-item" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+                    <i class="fas fa-assistive-listening-systems"></i>
+                </div>
+                <span>Auditiva</span>
+            </a>
+            
+            <a href="#caidas" class="nav-item" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-7), var(--color-10));">
+                    <i class="fas fa-person-falling"></i>
+                </div>
+                <span>Caídas</span>
+            </a>
+
+            <a href="#manos" class="nav-item" style="background: linear-gradient(135deg, #FFF0E8, #FFFFFF);">
+            <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-9), var(--color-11));">
+                <i class="fas fa-hand-paper"></i>
+            </div>
+            <span>Manos/Brazos</span>
+        </a>
+        
+        <a href="#ropa" class="nav-item" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF);">
+            <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-8), var(--color-4));">
+                <i class="fas fa-tshirt"></i>
+            </div>
+            <span>Ropa</span>
+        </a>
+        
+        <a href="#ahogamiento" class="nav-item" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF);">
+            <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+                <i class="fas fa-life-ring"></i>
+            </div>
+            <span>Ahogamiento</span>
+        </a>
+        
+        <a href="#electrica" class="nav-item" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF);">
+            <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-6), var(--color-1));">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <span>Eléctrico</span>
+        </a>
+        </div>
+    </div>
+    
+    <main class="container">
+        <!-- Sistema de tarjetas visuales completas -->
+        <div class="visual-grid">
+            
+            <!-- EPI Respiratorio -->
+            <div class="visual-card" id="respiratoria">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-1), var(--color-6));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Protección Respiratoria</div>
+                        <div class="card-subtitle">Equipos de Protección Respiratoria (EPR)</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-1), var(--color-6));">
+                                <i class="fas fa-filter"></i>
+                            </div>
+                            <span>Tipos de EPR</span>
+                        </div>
+                        
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #FF6B6B; border: 2px solid #FF6B6B;">
+                                <i class="fas fa-wind"></i> Equipos filtrantes
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #118AB2; border: 2px solid #118AB2;">
+                                <i class="fas fa-air-freshener"></i> Equipos aislantes
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F0FFE8, #FFFFFF); color: #06D6A0; border: 2px solid #06D6A0;">
+                                <i class="fas fa-smog"></i> Para gases/vapores
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF); color: #FFD166; border: 2px solid #FFD166;">
+                                <i class="fas fa-disease"></i> Para partículas
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF); color: #7209B7; border: 2px solid #7209B7;">
+                                <i class="fas fa-tint"></i> Para vapores de mercurio
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8F4, #FFFFFF); color: #FF006E; border: 2px solid #FF006E;">
+                                <i class="fas fa-compress-arrows-alt"></i> Autónomos
+                            </div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div>
+                                <strong>Equipos filtrantes:</strong> Purifican el aire ambiental mediante filtros. Según el contaminante: <li><span class="list-icon">☁️</span>Gases y vapores orgánicos</li>
+                                    <li><span class="list-icon">💨</span>Gases y vapores inorgánicos</li>
+                                    <li><span class="list-icon">⚗️</span>Dioxido de azufre</li>
+                                    <li><span class="list-icon">🧪</span>Amoniaco y derivados</li>
+                                    <li><span class="list-icon">🌫️</span>Partículas</li>
+                                    <li><span class="list-icon">⚠️</span>Vapores de mercurio</li>
+                                    <li><span class="list-icon">💨</span>Óxidos de nitrógeno</li>
+                                    <li><span class="list-icon">🔬</span>Gases específicos</li>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div>
+                                <strong>Equipos aislantes:</strong> Suministran aire respirable de fuente externa. Tipos: Equipos de aire fresco, línea de aire comprimido, autónomos (botella a presión).
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section" style="margin-bottom: 0; padding-bottom: 0;">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <span>Aspectos clave en selección y uso</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #FF6B6B;">Atención al ajuste y hermeticidad (vello facial, cicatrices, accesorios)</li>
+                            <li style="--li-color: #4ECDC4;">Evitar equipos filtrantes en atmósferas con deficiencia de oxígeno</li>
+                            <li style="--li-color: #FFD166;">No usar en atmósferas con contaminantes desconocidos o concentraciones peligrosas</li>
+                            <li style="--li-color: #06D6A0;">Respetar instrucciones del fabricante sobre combinación de filtros</li>
+                            <li style="--li-color: #118AB2;">Evaluar equipo como posible fuente de ignición en atmósferas explosivas</li>
+                            <li style="--li-color: #EF476F;">Usar mangueras con tipo y longitud especificadas por el fabricante</li>
+                            <li style="--li-color: #7209B7;">Limitar tiempo de uso continuado si causa incomodidad</li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <strong>Limitación temporal específica:</strong> En trabajos con exposición al amianto (RD 396/2006), el uso de EPR no puede ser permanente y no debe superar las 4 horas diarias por trabajador, con pausas según carga física y condiciones.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Protección de Pies y Piernas -->
+            <div class="visual-card" id="pies">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-2), var(--color-5));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Protección de Pies y Piernas</div>
+                        <div class="card-subtitle">Calzado de seguridad y protección</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-2), var(--color-5));">
+                                <i class="fas fa-hiking"></i>
+                            </div>
+                            <span>Tipos de protección</span>
+                        </div>
+                        
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F8F7, #FFFFFF); color: #4ECDC4; border: 2px solid #4ECDC4;">
+                                <i class="fas fa-arrow-up"></i> Por altura
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF0E8, #FFFFFF); color: #FB5607; border: 2px solid #FB5607;">
+                                <i class="fas fa-layer-group"></i> Por material
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F0E8FF, #FFFFFF); color: #8338EC; border: 2px solid #8338EC;">
+                                <i class="fas fa-shield-alt"></i> Por protección
+                            </div>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #4ECDC4;"><strong>Por altura:</strong> Zapato, bota baja/tobillera, media caña, alta, extra larga</li>
+                            <li style="--li-color: #06D6A0;"><strong>Por material:</strong> Cuero y otros materiales (Clasificación I) o completamente de caucho/polimérico (Clasificación II)</li>
+                            <li style="--li-color: #118AB2;"><strong>Por protección en dedos:</strong> Calzado de seguridad (mayor protección), calzado de protección, calzado de trabajo (no garantiza protección de dedos)</li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <strong>Protecciones específicas adicionales:</strong>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                                    <div>
+                                        <strong>Resistencias</strong>
+                                        <li><span class="list-icon">🔪</span>Penetración (punzantes/cortantes)</li>
+                                        <li><span class="list-icon">🚫</span>Deslizamiento</li>
+                                        <li><span class="list-icon">✂️</span>Corte</li>
+                                        <li><span class="list-icon">🛢️</span>Hidrocarburos</li>
+                                        <li><span class="list-icon">💧</span>Agua</li>
+                                    </div>
+                                    <div>
+                                        <strong>Protecciones</strong>
+                                        <li><span class="list-icon">⚡</span>Eléctrica (cond/aisl/antiest)</li>
+                                        <li><span class="list-icon">🔥</span>Aislamiento térmico</li>
+                                        <li><span class="list-icon">🦶</span>Metatarso</li>
+                                        <li><span class="list-icon">🦵</span>Tobillo</li>
+                                        <li><span class="list-icon">👟</span>Absorción energía tacón</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <span>Aspectos clave en selección y uso</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #4ECDC4;">No existe calzado que no resbale, pero hay con suelas antideslizantes</li>
+                            <li style="--li-color: #06D6A0;">Con sustancias químicas: calzado impermeable y resistente al agente específico</li>
+                            <li style="--li-color: #118AB2;">En ambientes húmedos: calzado de caucho o material polimérico</li>
+                            <li style="--li-color: #EF476F;">En atmósferas explosivas o con líquidos inflamables: calzado conductor o antiestático</li>
+                            <li style="--li-color: #7209B7;">Con plantillas ortopédicas: garantizar que no se modifica el nivel de protección</li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #4CAF50, #81C784);">
+                                <i class="fas fa-fire-extinguisher"></i>
+                            </div>
+                            <div>
+                                <strong>Calzado para actividades específicas:</strong><br>
+                            <ul style="margin-left: 20px;">
+                            <li>🧯Bomberos</li>
+                            <li>⚡Instalaciones en tensión</li>
+                            <li>🧪Resistencia química</li>
+                            <li>🪚Sierra de cadena</li>
+                            <li>🔥Riesgos térmicos y salpicaduras de metal fundido (fundición/soldadura)</li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Protección de la Cabeza -->
+            <div class="visual-card" id="cabeza">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-3), var(--color-12));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Protección de la Cabeza</div>
+                        <div class="card-subtitle">Cascos de protección industrial</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-3), var(--color-12));">
+                                <i class="fas fa-helmet-safety"></i>
+                            </div>
+                            <span>Tipos de cascos</span>
+                        </div>
+                        
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF); color: #FFD166; border: 2px solid #FFD166;">
+                                <i class="fas fa-hard-hat"></i> Cascos de protección
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #FF6B6B; border: 2px solid #FF6B6B;">
+                                <i class="fas fa-star"></i> Altas prestaciones
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #118AB2; border: 2px solid #118AB2;">
+                                <i class="fas fa-bullseye"></i> Contra golpes
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF); color: #7209B7; border: 2px solid #7209B7;">
+                                <i class="fas fa-fire"></i> Específicos
+                            </div>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #FFD166;"><strong>Cascos de protección (seguridad):</strong> Protegen contra caída de objetos y otros riesgos (eléctricos, salpicaduras)</li>
+                            <li style="--li-color: #FFB347;"><strong>Cascos de altas prestaciones:</strong> Mayor protección contra objetos e impactos laterales</li>
+                            <li style="--li-color: #FF9A3C;"><strong>Cascos contra golpes:</strong> Para choques contra objetos duros y fijos (no para caída de objetos)</li>
+                            <li style="--li-color: #FF7F2A;"><strong>Cascos específicos:</strong> Bomberos, eléctricamente aislantes, deportivos adaptados</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <span>Aspectos clave en selección y uso</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #FFD166;">Desechar tras impacto significativo, desgaste, deformación o daños</li>
+                            <li style="--li-color: #FFB347;">Llevar correctamente (visera derecha, no torcido o hacia atrás)</li>
+                            <li style="--li-color: #FF9A3C;">Usar barboquejo en trabajos en altura</li>
+                            <li style="--li-color: #FF7F2A;">No modificar (agujeros, pintura, pegatinas)</li>
+                            <li style="--li-color: #FF6B35;">Almacenar adecuadamente, sin exposición solar directa</li>
+                            <li style="--li-color: #FF5722;">Usar casco adecuado al riesgo (no usar contra golpes si hay riesgo de caída de objetos)</li>
+                            <li style="--li-color: #E64A19;">Considerar compatibilidad con otros EPI y aspectos de confort</li>
+                        </ul>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                <i class="fas fa-ban"></i>
+                            </div>
+                            <div>
+                                <strong>Importante:</strong> No usar casco contra golpes cuando existe riesgo de caída de objetos. En este caso, llevar un casco de seguridad.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Protección Ocular y Facial -->
+            <div class="visual-card" id="ocular">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-4), var(--color-8));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Protección Ocular y Facial</div>
+                        <div class="card-subtitle">Gafas y pantallas de protección</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-4), var(--color-8));">
+                                <i class="fas fa-glasses"></i>
+                            </div>
+                            <span>Tipos de protección</span>
+                        </div>
+                        
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F7F2, #FFFFFF); color: #06D6A0; border: 2px solid #06D6A0;">
+                                <i class="fas fa-glasses"></i> Montura universal
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #3A86FF; border: 2px solid #3A86FF;">
+                                <i class="fas fa-eye"></i> Montura integral
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF); color: #8338EC; border: 2px solid #8338EC;">
+                                <i class="fas fa-shield-alt"></i> Pantallas faciales
+                            </div>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #06D6A0;"><strong>Gafas de montura universal:</strong> Similar a gafas graduadas, con protecciones laterales. Disponibles panorámicas.</li>
+                            <li style="--li-color: #3A86FF;"><strong>Gafas de montura integral:</strong> Montura flexible con ocular panorámico, ajuste completo a la cara. Sistemas de ventilación directa/indirecta.</li>
+                            <li style="--li-color: #8338EC;"><strong>Pantallas faciales:</strong> Ocular que cubre región ocular y facial, acoplable a casco. Para soldador existen pantallas de mano.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-radiation"></i>
+                            </div>
+                            <span>Campos de uso</span>
+                        </div>
+                        
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #FF6B6B; border: 2px solid #FF6B6B;">
+                                Impactos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F8F7, #FFFFFF); color: #4ECDC4; border: 2px solid #4ECDC4;">
+                                Polvo grueso/fino
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF0E8, #FFFFFF); color: #FB5607; border: 2px solid #FB5607;">
+                                Gases
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F0E8FF, #FFFFFF); color: #8338EC; border: 2px solid #8338EC;">
+                                Salpicaduras y gotas
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8F4, #FFFFFF); color: #FF006E; border: 2px solid #FF006E;">
+                                Arco eléctrico
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF); color: #FFD166; border: 2px solid #FFD166;">
+                                Radiaciones
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #118AB2; border: 2px solid #118AB2;">
+                                Metales fundidos
+                            </div>
+                        </div>
+                        
+                        <!-- Añadir esto dentro del .card-content de la tarjeta ocular (#ocular), después de la última sección existente -->
+                        <div class="card-section" style="margin-bottom: 0px;">
+                            <div class="section-title">
+                                <div class="section-icon" style="background: linear-gradient(135deg, #06D6A0, #3A86FF);">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <span>Prestaciones de Oculares</span>
+                            </div>
+                            
+                            <div class="compact-features">
+                                <div class="feature-item">
+                                    <div class="feature-icon" style="background: var(--color-4);">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Clase óptica</strong>
+                                        <div class="tag-container" style="margin-top: 0.5rem;">
+                                            <span class="mini-tag" style="background: #E8F7F2; color: #06D6A0; border: 1px solid #06D6A0;">
+                                                <strong>1</strong> - Mejor calidad
+                                            </span>
+                                            <span class="mini-tag" style="background: #E8F4FF; color: #3A86FF; border: 1px solid #3A86FF;">
+                                                <strong>2</strong> - Calidad media
+                                            </span>
+                                            <span class="mini-tag" style="background: #FFE8E8; color: #EF476F; border: 1px solid #EF476F;">
+                                                <strong>3</strong> - Uso limitado
+                                            </span>
+                                        </div>
+                                        <p style="margin-top: 0.5rem; font-size: 0.9rem;">No usar clase 3 por largos períodos</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-icon" style="background: var(--color-5);">
+                                        <i class="fas fa-wind"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Resistencia al empañamiento</strong>
+                                        <p style="font-size: 0.9rem;">Tratamientos especiales en oculares y diseño de montura con ventilación adecuada</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-icon" style="background: var(--color-9);">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Resistencia a la abrasión</strong>
+                                        <p style="font-size: 0.9rem;">Recubrimiento resistente a partículas finas para mayor durabilidad</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-icon" style="background: var(--color-6);">
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Alta reflectancia IR</strong>
+                                        <p style="font-size: 0.9rem;">Para exposición a radiación con componente alta de infrarrojo</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <span>Aspectos clave en selección y uso</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #06D6A0;">No todos los campos de uso son compatibles con cualquier diseño de montura</li>
+                            <li style="--li-color: #3A86FF;">Limpiar con agua jabonosa o productos del fabricante, nunca con paño seco</li>
+                            <li style="--li-color: #8338EC;">No usar con visibilidad reducida (oculares arañados/gastados) o montura deformada</li>
+                            <li style="--li-color: #FF006E;">Considerar confort, adaptabilidad (oculares graduados) y compatibilidad con otros EPI</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Protección Auditiva - Versión Ampliada -->
+<!-- Protección Auditiva - Versión Resumida -->
+<div class="visual-card" id="auditiva">
+    <div class="card-header" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+        <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+            <i class="fas fa-assistive-listening-systems"></i>
+        </div>
+        <div>
+            <div class="card-title">Protección Auditiva</div>
+            <div class="card-subtitle">Equipos para exposición a ruido laboral</div>
+        </div>
+    </div>
+    
+    <div class="card-content">
+        <div class="card-section">
+            <div class="section-title">
+                <div class="section-icon" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+                    <i class="fas fa-ear-deaf"></i>
+                </div>
+                <span>Tipos Principales</span>
+            </div>
+            
+            <div class="tag-container">
+                <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #118AB2; border: 2px solid #118AB2;">
+                    <i class="fas fa-headphones"></i> Orejeras
+                </div>
+                <div class="tag" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF); color: #FFD166; border: 2px solid #FFD166;">
+                    <i class="fas fa-volume-mute"></i> Tapones
+                </div>
+                <div class="tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #FF6B6B; border: 2px solid #FF6B6B;">
+                    <i class="fas fa-sliders-h"></i> Pasivos/No pasivos
+                </div>
+                <div class="tag" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF); color: #7209B7; border: 2px solid #7209B7;">
+                    <i class="fas fa-microchip"></i> Con ANR
+                </div>
+            </div>
+            
+            <div class="info-box">
+            <div class="compact-classification">
+                <div class="classification-group">
+                    <h4><i class="fas fa-headphones"></i> Por Diseño</h4>
+                    <ul class="compact-list">
+                        <li><strong>Orejeras:</strong> Casquetes con arnés (cabeza, nuca, barbilla, universal).</li>
+                        <li><strong>Orejeras acopladas a cascos:</strong> Fijadas a casco de seguridad.</li>
+                        <li><strong>Tapones:</strong>
+                            <ul>
+                                <li>Moldeables por el usuario.</li>
+                                <li>Premoldeados (silicona, goma, plástico).</li>
+                                <li>Con arnés.</li>
+                                <li>Personalizados (con filtros ajustables).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="classification-group">
+                    <h4><i class="fas fa-sliders-h"></i> Por Funcionamiento</h4>
+                    <ul class="compact-list">
+                        <li><strong>Pasivos:</strong> Absorción/reflexión del sonido.</li>
+                        <li><strong>No Pasivos:</strong>
+                            <ul>
+                                <li>Dependientes del nivel (atenuación variable).</li>
+                                <li>Con reducción activa de ruido (ANR).</li>
+                                <li>Con sistema de comunicación (cable/inalámbrico).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <!-- Reemplazar la sección "Aspectos a considerar en la selección y uso" en la tarjeta de protección auditiva (#auditiva) con este código -->
+        <div class="card-section">
+            <div class="section-title">
+                <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <span>Aspectos a considerar en la selección y uso</span>
+            </div>
+            
+            <div class="warning-box">
+                <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                    <strong>Uso continuo esencial:</strong> Los protectores auditivos deben usarse durante todo el tiempo de exposición al ruido. Retirarlos, incluso brevemente, reduce drásticamente la protección efectiva.
+                </div>
+            </div>
+            
+            <ul class="visual-list">
+                <li style="--li-color: #118AB2;">Considerar atenuación acústica necesaria (NRR) según nivel y tipo de ruido: continuo, fluctuante, intermitente, impulsivo</li>
+                <li style="--li-color: #4ECDC4;">Evaluar factores ambientales: temperatura, condiciones de trabajo sucias, maquinaria con partes móviles</li>
+                <li style="--li-color: #06D6A0;">Valorar necesidad de inteligibilidad de la palabra (balance inteligibilidad/protección)</li>
+                <li style="--li-color: #FFD166;">Verificar compatibilidad con otros EPI (casco, protección respiratoria, etc.)</li>
+                <li style="--li-color: #FF6B6B;">Considerar posibles trastornos médicos de los trabajadores relacionados con la audición</li>
+                <li style="--li-color: #7209B7;">Asegurar ajuste correcto y adaptación al usuario; la talla adecuada influye en la protección</li>
+                <li style="--li-color: #9D4EDD;">Valorar factores ergonómicos y de confort para uso prolongado</li>
+                <li style="--li-color: #3A0CA3;">Sustituir ante cualquier signo de deterioro: grietas, endurecimiento de almohadillas, disminución de presión del arnés</li>
+                <li style="--li-color: #00BB9E;">Considerar protectores con respuesta plana en frecuencias para facilitar comunicación y percepción no distorsionada</li>
+            </ul>
+        </div>
+    </div>
+</div>
+            
+            <!-- Protección contra Caídas -->
+            <div class="visual-card" id="caidas">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-7), var(--color-10));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-person-falling"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Protección contra Caídas</div>
+                        <div class="card-subtitle">Sistemas de protección individual</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-7), var(--color-10));">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <span>Sistemas de protección</span>
+                        </div>
+                        
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF); color: #7209B7; border: 2px solid #7209B7;">
+                                <i class="fas fa-ban"></i> Retención
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8E8FF, #FFFFFF); color: #3A0CA3; border: 2px solid #3A0CA3;">
+                                <i class="fas fa-anchor"></i> Sujeción
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8FF, #FFFFFF); color: #FF006E; border: 2px solid #FF006E;">
+                                <i class="fas fa-rope"></i> Acceso con cuerda
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8FFFB, #FFFFFF); color: #00BB9E; border: 2px solid #00BB9E;">
+                                <i class="fas fa-stop-circle"></i> Anticaídas
+                            </div>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #7209B7;"><strong>Sistema de retención:</strong> Previene la caída libre (no la detiene), impide alcanzar zonas de riesgo</li>
+                            <li style="--li-color: #3A0CA3;"><strong>Sistema de sujeción (posicionamiento):</strong> Previene caída libre, permite trabajar apoyado en tensión/suspensión (ambas manos libres)</li>
+                            <li style="--li-color: #FF006E;"><strong>Sistema de acceso mediante cuerda:</strong> Acceso/salida con línea de trabajo y seguridad (dos sub-sistemas). Conexión a ambas líneas se realiza a través de arnés combinado (arnés anticaídas/arnés de asiento) en dos puntos de enganche. Pueden usarse para sujeción en posición de trabajo </li>
+                            <li style="--li-color: #00BB9E;"><strong>Sistema anticaídas (detención):</strong> Detiene caída libre y limita fuerza de impacto (≤6 kN). Ejemplos: absorbedores de energía, dispositivos retráctiles/deslizantes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <span>Aspectos clave en selección y uso</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #7209B7;">Idoneidad considerando fases del trabajo y características del lugar</li>
+                            <li style="--li-color: #3A0CA3;">Compatibilidad de componentes, limitaciones y consideraciones ergonómicas</li>
+                            <li style="--li-color: #FF006E;">Puntos de anclaje: idoneidad, localización y resistencia</li>
+                            <li style="--li-color: #00BB9E;">Trabajar con factor de caída 0 (anclaje por encima del trabajador)</li>
+                            <li style="--li-color: #9D4EDD;">Formación y competencia del trabajador</li>
+                            <li style="--li-color: #560BAD;">Plan de rescate en lugar de trabajo</li>
+                            <li style="--li-color: #480CA8;">Revisiones previas al uso y periódicas (mínimo anual)</li>
+                            <li style="--li-color: #3A0CA3;">Verificar espacio libre necesario bajo el usuario</li>
+                            <li style="--li-color: #240046;">Arnés anticaídas es único dispositivo de prensión para sistemas anticaídas</li>
+                        </ul>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                <i class="fas fa-skull-crossbones"></i>
+                            </div>
+                            <div>
+                                <strong>Crítico:</strong> Si hay duda sobre seguridad o el equipo ha detenido una caída, debe desecharse. No realizar modificaciones al equipo. Un equipo de amarre no se puede usar sin un medio de absorción de energía para detener una caída.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Las siguientes tarjetas seguirían el mismo patrón -->
+           <!-- Protección de Manos y Brazos - Versión fiel al PDF -->
+            <div class="visual-card" id="manos">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-9), var(--color-11));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Protección de Manos y Brazos</div>
+                        <div class="card-subtitle">Guantes de protección para riesgos</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-9), var(--color-11));">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <span>Tipos de protección</span>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div>
+                                Todos los guantes de protección deben cumplir con los requisitos generales de la norma UNE-EN ISO 21420 además de la norma específica que les aplique.
+                            </div>
+                        </div>
+                        
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF0E8, #FFFFFF); color: #FB5607; border: 2px solid #FB5607;">
+                                <i class="fas fa-tools"></i> Mecánicos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #FF6B6B; border: 2px solid #FF6B6B;">
+                                <i class="fas fa-cut"></i> Cortes por cuchillos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F8F7, #FFFFFF); color: #4ECDC4; border: 2px solid #4ECDC4;">
+                                <i class="fas fa-flask"></i> Productos químicos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F0E8FF, #FFFFFF); color: #8338EC; border: 2px solid #8338EC;">
+                                <i class="fas fa-bacteria"></i> Microorganismos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #118AB2; border: 2px solid #118AB2;">
+                                <i class="fas fa-snowflake"></i> Frío
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF); color: #FFD166; border: 2px solid #FFD166;">
+                                <i class="fas fa-fire"></i> Térmicos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8F4, #FFFFFF); color: #FF006E; border: 2px solid #FF006E;">
+                                <i class="fas fa-bolt"></i> Eléctricos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8FFFB, #FFFFFF); color: #00BB9E; border: 2px solid #00BB9E;">
+                                <i class="fas fa-vibration"></i> Antivibraciones
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF); color: #9C27B0; border: 2px solid #9C27B0;">
+                                <i class="fas fa-radiation"></i> Radiación ionizante
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8E8FF, #FFFFFF); color: #3F51B5; border: 2px solid #3F51B5;">
+                                <i class="fas fa-bolt"></i> Electroestáticos
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-hand-point-up"></i>
+                            </div>
+                            <span>Aspectos a considerar en la selección y uso</span>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <strong>Guantes de categoría I:</strong> Marcados "sólo para riesgos mínimos". Solo deben usarse cuando su eficacia puede ser juzgada por el propio usuario y únicamente para los riesgos definidos como tales (ver Apéndice 2).
+                            </div>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="--li-color: #FB5607;">Todos los guantes llevan pictogramas relacionados con los tipos de riesgos contra los que protegen.</li>
+                            <li style="--li-color: #FF6B6B;">Guantes mecánicos con nivel ≥1 en resistencia al rasgado: no usar cuando exista riesgo de atrapamiento por partes móviles de máquinas.</li>
+                            <li style="--li-color: #4ECDC4;">Protección química: asegurarse de que el usuario no es alérgico (ej: látex o DMF). Analizar productos ensayados y niveles de permeación (son indicativos, no reflejan duración real).</li>
+                            <li style="--li-color: #8338EC;">Guantes contra microorganismos: si protegen frente a virus, bajo el pictograma aparecerá la palabra "virus".</li>
+                            <li style="--li-color: #FFD166;">Considerar limitaciones de uso específicas (ej: guante de soldador puede no ser indicado para soldadura al arco).</li>
+                            <li style="--li-color: #118AB2;">Guantes para horno: al menos protección frente al calor de contacto.</li>
+                            <li style="--li-color: #FF006E;">Formar a los usuarios en cómo ponerse y quitarse los guantes para evitar contaminación.</li>
+                            <li style="--li-color: #00BB9E;">Inspeccionar regularmente y desechar si están gastados o deteriorados.</li>
+                        </ul>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div>
+                                <strong>Importante:</strong> El riesgo de perforación frente al que protege un guante mecánico no incluye el riesgo de pinchazo por puntas finas o agujas hipodérmicas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <!-- Ropa de Protección - Estilo Original -->
+            <div class="visual-card" id="ropa">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-8), var(--color-4));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Ropa de Protección</div>
+                        <div class="card-subtitle">Protección corporal completa y parcial</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-8), var(--color-4));">
+                                <i class="fas fa-vest"></i>
+                            </div>
+                            <span>Tipos de protección</span>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div>
+                                <strong>Normativa:</strong> Debe cumplir la norma UNE-EN ISO 13688 además de la norma específica que les aplique. Si no ofrece protección específica, se considera ropa de trabajo y no es EPI.
+                            </div>
+                        </div>                        
+                        
+                        <div>
+                        
+                            <ul class="visual-list">
+                                <li style="--li-color: #3A86FF;"><strong>Prendas individuales:</strong> Chaquetas, manguitos, pantalones, delantales, capuchas, polainas</li>
+                                <li style="--li-color: #06D6A0;"><strong>Monos y trajes:</strong> Cubren el cuerpo completo, con o sin capucha</li>
+                            </ul>
+                        </div>
+                                                   
+                        
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #3A86FF; border: 2px solid #3A86FF;">
+                                <i class="fas fa-snowflake"></i> Ambientes fríos (>-5°C)
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #118AB2; border: 2px solid #118AB2;">
+                                <i class="fas fa-icicles"></i> Frío (hasta -50°C)
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F7F2, #FFFFFF); color: #06D6A0; border: 2px solid #06D6A0;">
+                                <i class="fas fa-umbrella"></i> Lluvia
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF0E8, #FFFFFF); color: #FB5607; border: 2px solid #FB5607;">
+                                <i class="fas fa-cut"></i> Cortes por cuchillos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F8F7, #FFFFFF); color: #4ECDC4; border: 2px solid #4ECDC4;">
+                                <i class="fas fa-flask"></i> Productos químicos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F0E8FF, #FFFFFF); color: #8338EC; border: 2px solid #8338EC;">
+                                <i class="fas fa-biohazard"></i> Agentes biológicos
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F8F7, #FFFFFF); color: #4ECDC4; border: 2px solid #4ECDC4;">
+                                <i class="fas fa-spray-can"></i> Fitosanitarios
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #FF6B6B; border: 2px solid #FF6B6B;">
+                                <i class="fas fa-fire"></i> Calor y llama
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8F4, #FFFFFF); color: #FF006E; border: 2px solid #FF006E;">
+                                <i class="fas fa-radiation"></i> Contaminación radioactiva
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8E8FF, #FFFFFF); color: #3F51B5; border: 2px solid #3F51B5;">
+                                <i class="fas fa-cogs"></i> Atrapamiento por máquinas
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF); color: #FFD166; border: 2px solid #FFD166;">
+                                <i class="fas fa-eye"></i> Alta visibilidad
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF); color: #9C27B0; border: 2px solid #9C27B0;">
+                                <i class="fas fa-user-injured"></i> Rodilleras
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #E8E8FF, #FFFFFF); color: #3F51B5; border: 2px solid #3F51B5;">
+                                <i class="fas fa-bolt"></i> Electroestática
+                            </div>
+                        </div>
+                        
+                        <div class="special-notes">
+                            <div class="info-box" style="margin: 1.2rem 0 0;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #FF6B6B, #EF476F);">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div>
+                                    <strong>Ropa térmica específica:</strong> Existen distintas clases para contactos con llamas, calor radiante, convectivo o salpicaduras de metales fundidos. Versiones específicas para bomberos, forestales, rescate, etc.
+                                </div>
+                            </div>
+                            
+                            <div class="info-box" style="margin: 1rem 0 0;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #8338EC, #9C27B0);">
+                                    <i class="fas fa-radiation"></i>
+                                </div>
+                                <div>
+                                    <strong>Contaminación radioactiva:</strong> Protege contra partículas sólidas en el aire (incluyendo contaminación radiactiva) pero no protege contra radiación ionizante.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sección de Aspectos clave en selección y uso - Dos columnas -->
+                    <div class="card-section" style="margin-bottom: 0; padding-bottom: 0;">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <span>Aspectos clave en selección y uso</span>
+                        </div>
+                        
+                        <div class="">
+                            <ul class="visual-list compact-visual-list">
+                                <li style="--li-color: #3A86FF;">Todas las prendas requieren propiedades de resistencia mecánica mínima</li>
+                                <li style="--li-color: #06D6A0;">El confort debe ser adecuado al nivel de protección, condiciones ambientales, actividad y tiempo de uso previsto</li>
+                                <li style="--li-color: #FB5607;">Pictogramas con números/letras indican nivel de clasificación para determinadas prestaciones</li>
+                                <li style="--li-color: #8338EC;">Ropa de un solo uso debe marcarse con "No reutilizable"</li>
+                                <li style="--li-color: #FF6B6B;">Algunas prendas requieren reaplicación de tratamientos para mantener propiedades protectoras</li>
+                            </ul>
+                            
+                            <ul class="visual-list compact-visual-list">
+                                <li style="--li-color: #FFD166;">Almacenar ropa usada/contaminada separada de la limpia</li>
+                                <li style="--li-color: #118AB2;">Seleccionar cuidadosamente protección frente a sustancias químicas</li>
+                                <li style="--li-color: #3F51B5;">No usar ropa holgada cuando exista riesgo de atrapamiento por partes móviles de máquinas</li>
+                                <li style="--li-color: #00BB9E;">Ropa frente a productos fitosanitarios: ensayos específicos de penetración/permeación</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box" style="margin-top: 1.5rem;">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <strong>Importante:</strong> Instrucciones muy estrictas para almacenamiento de ropa con contaminación biológica o por fibras de amianto. Los niveles de permeación son indicativos y no reflejan la duración real de la protección durante el uso.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Protección frente al Ahogamiento - Versión Compacta -->
+            <div class="visual-card" id="ahogamiento">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-life-ring"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Protección frente al Ahogamiento</div>
+                        <div class="card-subtitle">Equipos de flotación individual (EFI)</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+                                <i class="fas fa-swimmer"></i>
+                            </div>
+                            <span>Tipos de protección</span>
+                        </div>
+
+                        <div class="tag-container">
+                            <div class="tag" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF); color: #118AB2; border: 2px solid #118AB2;">
+                                <i class="fas fa-user-secret"></i> Trajes inmersión
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #FF6B6B; border: 2px solid #FF6B6B;">
+                                <i class="fas fa-life-ring"></i> Chalecos salvavidas
+                            </div>
+                            <div class="tag" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF); color: #FFD166; border: 2px solid #FFD166;">
+                                <i class="fas fa-swimming-pool"></i> Ayudas flotación
+                            </div>
+                        </div>
+                        
+                        <div class="flotation-compact-grid">
+                            <!-- Trajes de inmersión -->
+                            <div class="flotation-compact-item">
+                                <div class="flotation-header" style="border-left: 4px solid #118AB2;">
+                                    <div class="flotation-icon" style="background: #118AB2;">
+                                        <i class="fas fa-user-secret"></i>
+                                    </div>
+                                    <h4>Trajes de inmersión</h4>
+                                </div>
+                                <div class="flotation-content">
+                                    <p><strong>Para condiciones térmicas del agua que agraven el riesgo</strong> (hipotermia, choque térmico).</p>
+                                    <ul class="compact-list">
+                                        <li><strong>Tipos:</strong> Uso continuo o evacuación</li>
+                                        <li><strong>Aislamiento:</strong> Aislados o con forro hinchable</li>
+                                        <li><strong>Función:</strong> Extienden tiempo de supervivencia</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Chalecos salvavidas -->
+                            <div class="flotation-compact-item">
+                                <div class="flotation-header" style="border-left: 4px solid #FF6B6B;">
+                                    <div class="flotation-icon" style="background: #FF6B6B;">
+                                        <i class="fas fa-life-ring"></i>
+                                    </div>
+                                    <h4>Chalecos salvavidas</h4>
+                                </div>
+                                <div class="flotation-content">
+                                    <p><strong>Cuando el riesgo no se ve agravado por condiciones térmicas.</strong></p>
+                                    <p>Giran a persona inconsciente y mantienen vías respiratorias fuera del agua.</p>
+                                    
+                                    <div class="compact-levels">
+                                        <div class="compact-level">
+                                            <span class="level-badge" style="background: #118AB2;">100 N</span>
+                                            <span>Aguas en calma, ropa ligera</span>
+                                        </div>
+                                        <div class="compact-level">
+                                            <span class="level-badge" style="background: #4ECDC4;">150 N</span>
+                                            <span>Alta mar (agitada), ropa mal tiempo</span>
+                                        </div>
+                                        <div class="compact-level">
+                                            <span class="level-badge" style="background: #FB5607;">275 N</span>
+                                            <span>Alta mar (extrema), ropa protección</span>
+                                        </div>
+                                        <div class="compact-level">
+                                            <span class="level-badge" style="background: #8338EC;">Especial</span>
+                                            <span>Otros niveles o modificaciones</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Ayudas a la flotación -->
+                            <div class="flotation-compact-item">
+                                <div class="flotation-header" style="border-left: 4px solid #FFD166;">
+                                    <div class="flotation-icon" style="background: #FFD166;">
+                                        <i class="fas fa-swimming-pool"></i>
+                                    </div>
+                                    <h4>Ayudas a la flotación</h4>
+                                </div>
+                                <div class="flotation-content">
+                                    <p><strong>Aguas en calma y cerca de orilla o auxilio.</strong></p>
+                                    
+                                    <div class="danger-box" style="margin: 0.8rem 0; padding: 0.8rem;">
+                                        <i class="fas fa-exclamation-triangle" style="color: #FF9800; margin-right: 0.5rem;"></i>
+                                        <div style="font-size: 1rem;">
+                                            <strong>No usar si usuario puede quedar inconsciente</strong> (carecen de auto-enderezamiento).
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="compact-levels">
+                                        <div class="compact-level">
+                                            <span class="level-badge" style="background: #FFD166;">50 N</span>
+                                            <span>Solo buenos nadadores, aguas en calma</span>
+                                        </div>
+                                        <div class="compact-level">
+                                            <span class="level-badge" style="background: #00BB9E;">Especial</span>
+                                            <span>Otros niveles o modificaciones</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section" style="margin-bottom: 0; padding-bottom: 0;">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <span>Aspectos clave en selección y uso</span>
+                        </div>
+                        
+                        <div class="two-column-list">
+                            <ul class="visual-list compact-visual-list">
+                                <li style="--li-color: #118AB2;">Evaluar estado del mar y condiciones meteorológicas</li>
+                                <li style="--li-color: #FF6B6B;">Considerar peso y carga del usuario</li>
+                                <li style="--li-color: #FFD166;">Distancia a la costa y tiempo de rescate previsible</li>
+                                <li style="--li-color: #06D6A0;">Accesorios necesarios (luces, silbatos para salvamento/localización)</li>
+                            </ul>
+                            
+                            <ul class="visual-list compact-visual-list">
+                                <li style="--li-color: #8338EC;">Trajes de inmersión: para riesgo agravado por condiciones térmicas</li>
+                                <li style="--li-color: #FF006E;">Chalecos salvavidas: para riesgo no agravado por temperatura</li>
+                                <li style="--li-color: #00BB9E;">Ayudas flotación: solo para usuarios conscientes en aguas calmas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-box" style="margin-top: 1.5rem;">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div>
+                                <strong>Selección específica:</strong> Basar la elección en el campo de aplicación específico. Los chalecos salvavidas son obligatorios cuando existe riesgo de que el usuario quede inconsciente en el agua.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Protección frente al Riesgo Eléctrico - Versión Completa Horizontal -->
+            <div class="visual-card" id="electrica" style="flex: 1 1 100%; max-width: 1900px;">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-6), var(--color-1));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Protección frente al Riesgo Eléctrico</div>
+                        <div class="card-subtitle">EPI para trabajos en instalaciones eléctricas o en su proximidad</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <!-- Introducción -->
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-6), var(--color-1));">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <span>Consideraciones Generales</span>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <p><strong>Atención:</strong> Los niveles de tensión indicados se establecen para trabajos en lugares secos. Para lugares húmedos o mojados se establecen niveles especiales, normalmente por debajo de los niveles indicados.</p>
+                                <p><strong>Propiedades del EPI:</strong> dieléctricas, térmicas, disipativas, y protección contra ondas de choque, gases, radiaciones electromagnéticas, etc.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Secciones en grid horizontal -->
+                    <div class="grid-3-col">
+                        <!-- 1. Choque Eléctrico -->
+                        <div class="card-section">
+                            <div class="section-title">
+                                <div class="section-icon" style="background: linear-gradient(135deg, #EF476F, #FF6B6B);">
+                                    <i class="fas fa-plug"></i>
+                                </div>
+                                <span>1. Trabajos con riesgo de choque eléctrico</span>
+                            </div>
+                            
+                            <div class="warning-box" style="margin: 1rem 0;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #EF476F, #FF6B6B);">
+                                    <i class="fas fa-exclamation"></i>
+                                </div>
+                                <div>
+                                    <strong>Umbral de protección:</strong> A partir de 50 V AC o 75 V DC se debe seleccionar EPI dieléctrico/aislante.
+                                </div>
+                            </div>
+                            
+                            <div class="design-hierarchy">
+                                <div class="design-category" style="border-left-color: #EF476F;">
+                                    <div class="category-title">
+                                        <i class="fas fa-hand-paper" style="color: #EF476F;"></i>
+                                        <span>Guantes dieléctricos</span>
+                                    </div>
+                                    <p>Protegen frente a tensiones eléctricas de hasta 36 kV AC / 54 kV DC según clase</p>
+                                    <div class="category-items">
+                                        <div class="hierarchy-tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #EF476F; border: 2px solid #EF476F;">
+                                            Clase 00: ≤ 500V AC
+                                        </div>
+                                        <div class="hierarchy-tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #EF476F; border: 2px solid #EF476F;">
+                                            Clase 0: ≤ 1000V AC
+                                        </div>
+                                        <div class="hierarchy-tag" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF); color: #EF476F; border: 2px solid #EF476F;">
+                                            Clase 4: ≤ 36kV AC
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="design-category" style="border-left-color: #FFD166;">
+                                    <div class="category-title">
+                                        <i class="fas fa-hard-hat" style="color: #FFD166;"></i>
+                                        <span>Cascos aislantes BT</span>
+                                    </div>
+                                    <p>Para instalaciones de baja tensión: ≤1000V AC / 1500V DC</p>
+                                </div>
+                                
+                                <div class="design-category" style="border-left-color: #4ECDC4;">
+                                    <div class="category-title">
+                                        <i class="fas fa-shoe-prints" style="color: #4ECDC4;"></i>
+                                        <span>Calzado aislante</span>
+                                    </div>
+                                    <p>Protección hasta 36 kV AC / 25,5 kV DC según clase</p>
+                                </div>
+                                
+                                <div class="design-category" style="border-left-color: #118AB2;">
+                                    <div class="category-title">
+                                        <i class="fas fa-tshirt" style="color: #118AB2;"></i>
+                                        <span>Ropa aislante BT</span>
+                                    </div>
+                                    <p>Para baja tensión: ≤500V AC / 750V DC</p>
+                                </div>
+                            </div>
+                            
+                            <div class="danger-box" style="margin-top: 1rem;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <div>
+                                    <strong>NUNCA usar como único elemento de protección.</strong> Se requiere uso simultáneo de otros EPI compatibles y adecuados al nivel de tensión.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2. Arco Eléctrico -->
+                        <div class="card-section">
+                            <div class="section-title">
+                                <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <span>2. Trabajos con riesgo de arco eléctrico</span>
+                            </div>
+                            
+                            <div class="warning-box" style="margin: 1rem 0;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                    <i class="fas fa-exclamation"></i>
+                                </div>
+                                <div>
+                                    <strong>Condiciones:</strong> >250V AC/DC y potencia ≥125 kVA
+                                </div>
+                            </div>
+                            
+                            <div class="design-hierarchy">
+                                <div class="design-category" style="border-left-color: #FF9800;">
+                                    <div class="category-title">
+                                        <i class="fas fa-tshirt" style="color: #FF9800;"></i>
+                                        <span>Ropa protección térmica</span>
+                                    </div>
+                                    <p>Contra riesgos térmicos derivados del arco eléctrico</p>
+                                    <div class="subcategory">
+                                        <div class="subcategory-title">
+                                            <i class="fas fa-ruler"></i>
+                                            Especificación por valor:
+                                        </div>
+                                        <div class="subcategory-items">
+                                            <div class="feature-badge">ATPV (cal/cm²)</div>
+                                            <div class="feature-badge">EBT (cal/cm²)</div>
+                                        </div>
+                                    </div>
+                                    <div class="subcategory">
+                                        <div class="subcategory-title">
+                                            <i class="fas fa-layer-group"></i>
+                                            Especificación por clase:
+                                        </div>
+                                        <div class="subcategory-items">
+                                            <div class="feature-badge" style="background: #FFE8E8; color: #FF6B6B; border-color: #FF6B6B;">
+                                                Clase 1: ≈15 cal/cm²
+                                            </div>
+                                            <div class="feature-badge" style="background: #FFE8E8; color: #EF476F; border-color: #EF476F;">
+                                                Clase 2: ≈30 cal/cm²
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="category-description"><strong>Nota:</strong> Los resultados no son comparables. Seleccionar basándose en uno de ellos.</p>
+                                </div>
+                                
+                                <div class="design-category" style="border-left-color: #3A86FF;">
+                                    <div class="category-title">
+                                        <i class="fas fa-eye" style="color: #3A86FF;"></i>
+                                        <span>Protección ocular facial</span>
+                                    </div>
+                                    <p>Debe cubrir toda la cara y tener ocular filtrante contra radiación electromagnética del arco</p>
+                                </div>
+                                
+                                <div class="design-category" style="border-left-color: #FB5607;">
+                                    <div class="category-title">
+                                        <i class="fas fa-hand-paper" style="color: #FB5607;"></i>
+                                        <span>Protección manos</span>
+                                    </div>
+                                    <p>Combinaciones recomendadas:</p>
+                                    <div class="category-items">
+                                        <div class="hierarchy-tag" style="background: linear-gradient(135deg, #FFF0E8, #FFFFFF); color: #FB5607; border: 2px solid #FB5607;">
+                                            Guantes dieléctricos SOBRE ignífugos
+                                        </div>
+                                        <div class="hierarchy-tag" style="background: linear-gradient(135deg, #FFF0E8, #FFFFFF); color: #FB5607; border: 2px solid #FB5607;">
+                                            Guantes dieléctricos con protección térmica
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="danger-box" style="margin-top: 1rem;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                    <i class="fas fa-skull-crossbones"></i>
+                                </div>
+                                <div>
+                                    <strong>NO REUTILIZAR:</strong> EPI expuestos a un arco, incluso sin defectos visibles.
+                                    <br><strong>Protección completa:</strong> A partir de 8 cal/cm² proteger cabeza, extremidades y tronco.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 3. Atmósferas Explosivas -->
+                        <div class="card-section" style="border-bottom: 2px dashed #eee;">
+                            <div class="section-title">
+                                <div class="section-icon" style="background: linear-gradient(135deg, #8338EC, #9D4EDD);">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <span>3. Trabajos en atmósferas explosivas</span>
+                            </div>
+                            
+                            <div class="warning-box" style="margin: 1rem 0;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #8338EC, #9D4EDD);">
+                                    <i class="fas fa-exclamation"></i>
+                                </div>
+                                <div>
+                                    <strong>Requisito clave:</strong> Resistencia trabajador + suelo < 10⁸ Ω
+                                </div>
+                            </div>
+                            
+                            <div class="design-hierarchy">
+                                <div class="design-category" style="border-left-color: #4ECDC4;">
+                                    <div class="category-title">
+                                        <i class="fas fa-shoe-prints" style="color: #4ECDC4;"></i>
+                                        <span>Selección por riesgo</span>
+                                    </div>
+                                    
+                                    <div class="subcategory">
+                                        <div class="subcategory-title">
+                                            <i class="fas fa-bolt" style="color: #FFD166;"></i>
+                                            Con riesgo eléctrico:
+                                        </div>
+                                        <ul class="compact-list">
+                                            <li>Calzado antiestático (≤250V AC)</li>
+                                            <li>Ropa y guantes disipativos + térmicos</li>
+                                            <li>Otros EPI según apartados 1 y 2</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="subcategory">
+                                        <div class="subcategory-title">
+                                            <i class="fas fa-bolt" style="color: #06D6A0;"></i>
+                                            Sin riesgo eléctrico:
+                                        </div>
+                                        <ul class="compact-list">
+                                            <li>Calzado conductor o antiestático</li>
+                                            <li>Ropa y guantes disipativos</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="design-category" style="border-left-color: #3A86FF;">
+                                    <div class="category-title">
+                                        <i class="fas fa-ruler-combined" style="color: #3A86FF;"></i>
+                                        <span>Parámetros críticos</span>
+                                    </div>
+                                    <ul class="compact-list">
+                                        <li>Resistencia eléctrica del suelo</li>
+                                        <li>Humedad relativa ambiente</li>
+                                        <li>Concentración de oxígeno</li>
+                                        <li>Límites de uso según fabricante</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="info-box" style="margin-top: 1rem;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div>
+                                    <strong>Ropa conductora especial:</strong> Para trabajos en tensión hasta 800 kV AC / ±600 kV DC. Presenta resistencia eléctrica muy baja y se utiliza para apantallamiento eléctrico. Forma grupo independiente de los EPI "dieléctricos".
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aspectos comunes -->
+                    <div class="card-section" style="margin-bottom: 0; padding-bottom: 0;">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #4CAF50, #81C784);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <span>Aspectos comunes en selección y uso</span>
+                        </div>
+                        
+                        <div class="grid-2-col">
+                            <div>
+                                <div class="section-subtitle">
+                                    <i class="fas fa-search" style="color: #4ECDC4;"></i>
+                                    Selección
+                                </div>
+                                <ul class="visual-list">
+                                    <li style="--li-color: #4ECDC4;">Identificar zona corporal que podría entrar en contacto con elementos en tensión</li>
+                                    <li style="--li-color: #06D6A0;">Considerar compatibilidad entre EPI (ej: protección ocular con cascos)</li>
+                                    <li style="--li-color: #118AB2;">Verificar que no existan partes metálicas expuestas</li>
+                                    <li style="--li-color: #3A86FF;">Asegurar ajuste correcto según instrucciones del fabricante</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <div class="section-subtitle">
+                                    <i class="fas fa-tools" style="color: #FF9800;"></i>
+                                    Mantenimiento
+                                </div>
+                                <ul class="visual-list">
+                                    <li style="--li-color: #FF9800;">Inspección visual previa a cada uso (sin defectos o modificaciones)</li>
+                                    <li style="--li-color: #FFB74D;">Mantenimiento según folleto informativo del fabricante</li>
+                                    <li style="--li-color: #FF9E00;">Revisiones periódicas según intervalos establecidos</li>
+                                    <li style="--li-color: #FF5722;">Nunca manipular durante la realización de trabajos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    
+    <!-- Botón flotante -->
+    <button class="floating-btn" id="scrollTopBtn" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Footer visual -->
+    <footer class="visual-footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 2.2rem;">Guía Visual Completa de EPI</h2>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9;">
+                    Basada en el documento "PARA LA UTILIZACIÓN POR LOS TRABAJADORES DE EQUIPOS DE PROTECCIÓN INDIVIDUAL" del Instituto Nacional de Seguridad y Salud en el Trabajo (INSST)
+                </p>
+                
+                <div class="footer-icons">
+                    <div class="footer-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-book-medical"></i>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2.5rem;">
+                    <p style="opacity: 0.8; font-size: 0.95rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-info-circle"></i> Esta información es de carácter técnico y debe complementarse con evaluación de riesgos específica de cada puesto de trabajo.
+                    </p>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">
+                        © 2023 Guía Visual de EPI - Diseño educativo y divulgativo - Basado en normativa INSST
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Botón para volver arriba
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Efecto de animación al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animación para los elementos de lista
+            const listItems = document.querySelectorAll('.visual-list li');
+            listItems.forEach((item, index) => {
+                item.style.setProperty('--li-color', item.style.getPropertyValue('--li-color') || '#FF6B6B');
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 100 + index * 50);
+                
+                // Añadir bullet personalizado
+                const color = item.style.getPropertyValue('--li-color');
+                item.style.setProperty('--li-color', color);
+                item.style.borderLeft = `4px solid ${color}`;
+                item.style.paddingLeft = '1.5rem';
+                item.style.marginLeft = '1rem';
+                item.style.borderRadius = '0 8px 8px 0';
+            });
+            
+            // Animación para las tarjetas
+            const cards = document.querySelectorAll('.visual-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300 + index * 150);
+            });
+            
+            // Animación para etiquetas
+            const tags = document.querySelectorAll('.tag');
+            tags.forEach((tag, index) => {
+                tag.style.opacity = '0';
+                tag.style.transform = 'scale(0.8)';
+                
+                setTimeout(() => {
+                    tag.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    tag.style.opacity = '1';
+                    tag.style.transform = 'scale(1)';
+                }, 500 + index * 30);
+            });
+        });
+        
+        // Efecto hover mejorado para tarjetas
+        const cards = document.querySelectorAll('.visual-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const header = card.querySelector('.card-header');
+                const computedStyle = window.getComputedStyle(header);
+                const bgImage = computedStyle.backgroundImage;
+                
+                // Crear un efecto de brillo en el borde
+                card.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(255,255,255,0.8)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = 'var(--shadow-card)';
+            });
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

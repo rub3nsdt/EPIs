@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Técnica Completa de EPIs - Normativa y Obligaciones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-1: #FF6B6B;
+            --color-2: #4ECDC4;
+            --color-3: #FFD166;
+            --color-4: #06D6A0;
+            --color-5: #118AB2;
+            --color-6: #EF476F;
+            --color-7: #7209B7;
+            --color-8: #3A86FF;
+            --color-9: #FB5607;
+            --color-10: #8338EC;
+            --color-11: #FF006E;
+            --color-12: #FF9E00;
+            --gradient-header: linear-gradient(90deg, #2c3e50 0%, #4a6491 100%);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .hero-header {
+            background: var(--gradient-header);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .hero-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
+        }
+        
+        .hero-header p {
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+        
+        /* Navegación */
+        .visual-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 25px;
+            box-shadow: var(--shadow-card);
+            max-width: 1300px;
+            position: sticky;
+            top: 20px;
+            z-index: 99;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 1.2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 110px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .nav-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* Sistema de tarjetas visuales */
+        .visual-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .visual-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .visual-card {
+            max-width: 700px;
+            flex: 1 1 550px;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .visual-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .card-header {
+            padding: 1.8rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .card-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .card-content {
+            padding: 2rem;
+        }
+        
+        /* Secciones dentro de las tarjetas */
+        .card-section {
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px dashed #eee;
+        }
+        
+        .card-section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            color: #333;
+        }
+        
+        .section-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+        }
+        
+        /* Elementos visuales */
+        .highlight-number {
+            color: #EF476F;
+            font-weight: 800;
+            font-size: 1.2rem;
+            background-color: rgba(239, 71, 111, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            margin: 0 2px;
+        }
+        
+        .visual-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .visual-list li {
+            padding: 0.8rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.05rem;
+            border-left: 4px solid transparent;
+            margin-bottom: 0.5rem;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .visual-list li:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+            padding-left: 3rem;
+        }
+        
+        .visual-list li:before {
+            content: '';
+            position: absolute;
+            left: 0.8rem;
+            top: 1.3rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Cajas especiales */
+        .warning-box, .danger-box, .info-box, .success-box, .regulation-box {
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+            border-left: 6px solid #FF9800;
+        }
+        
+        .danger-box {
+            background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+            border-left: 6px solid #F44336;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-left: 6px solid #2196F3;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-left: 6px solid #4CAF50;
+        }
+        
+        .regulation-box {
+            background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+            border-left: 6px solid #9C27B0;
+        }
+        
+        .box-icon {
+            font-size: 1.8rem;
+            min-width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* Footer */
+        .visual-footer {
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 5rem;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .visual-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 0L0 0 892.25 114.72 1200 0z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        /* Botón flotante */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-6), var(--color-1));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 30px rgba(239, 71, 111, 0.5);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+        
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .hero-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-header p {
+                font-size: 1.1rem;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            
+            .visual-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-title {
+                font-size: 1.6rem;
+            }
+            
+            .visual-nav {
+                padding: 1.5rem;
+                top: 10px;
+            }
+            
+            .nav-item {
+                min-width: 90px;
+                padding: 0.8rem 1rem;
+            }
+        }
+        
+        /* Estilos para definiciones importantes */
+        .definition-box {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-left: 6px solid #4CAF50;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+        
+        .definition-title {
+            font-weight: 700;
+            color: #2E7D32;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .legal-reference {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        /* Estilo para artículos */
+        .article-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #3A86FF, #8338EC);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero-header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-1), var(--color-6));">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-2), var(--color-5));">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-3), var(--color-12));">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--color-4), var(--color-8));">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+            </div>
+            
+            <h1>GUÍA TÉCNICA DE EPIs</h1>
+            <p>Equipos de Protección Individual - Normativa completa según Real Decreto y Reglamento (UE) 2016/425</p>
+        </div>
+    </header>
+    
+    <!-- Navegación -->
+    <div class="container">
+        <div class="visual-nav">
+            <a href="#definicion" class="nav-item" style="background: linear-gradient(135deg, #FFE8E8, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-1), var(--color-6));">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <span>Definición</span>
+            </a>
+            
+            <a href="#exclusiones" class="nav-item" style="background: linear-gradient(135deg, #E8F8F7, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-2), var(--color-5));">
+                    <i class="fas fa-ban"></i>
+                </div>
+                <span>Exclusiones</span>
+            </a>
+            
+            <a href="#obligaciones" class="nav-item" style="background: linear-gradient(135deg, #FFF8E8, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-3), var(--color-12));">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <span>Obligaciones</span>
+            </a>
+            
+            <a href="#criterios" class="nav-item" style="background: linear-gradient(135deg, #E8F7F2, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-4), var(--color-8));">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <span>Criterios</span>
+            </a>
+            
+            <a href="#condiciones" class="nav-item" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <span>Condiciones</span>
+            </a>
+            
+            <a href="#eleccion" class="nav-item" style="background: linear-gradient(135deg, #F7E8FF, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-7), var(--color-10));">
+                    <i class="fas fa-hand-pointer"></i>
+                </div>
+                <span>Elección</span>
+            </a>
+
+            <a href="#uso" class="nav-item" style="background: linear-gradient(135deg, #FFF0E8, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-9), var(--color-11));">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <span>Uso/Mantenimiento</span>
+            </a>
+            
+            <a href="#formacion" class="nav-item" style="background: linear-gradient(135deg, #E8F4FF, #FFFFFF);">
+                <div class="nav-icon" style="background: linear-gradient(135deg, var(--color-8), var(--color-4));">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span>Formación</span>
+            </a>
+        </div>
+    </div>
+    
+    <main class="container">
+        <!-- Sistema de tarjetas visuales completas -->
+        <div class="visual-grid">
+            
+            <!-- Definición de EPI -->
+            <div class="visual-card" id="definicion">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-1), var(--color-6));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Definición de EPI</div>
+                        <div class="card-subtitle">Artículo 2 del Real Decreto</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="definition-box">
+                        <div class="definition-title">Definición Legal de Equipo de Protección Individual</div>
+                        <p>Cualquier equipo destinado a ser llevado o sujetado por el trabajador para que le proteja de uno o varios riesgos que puedan amenazar su seguridad o su salud, así como cualquier complemento o accesorio destinado a tal fin.</p>
+                        <div class="legal-reference">Real Decreto, Artículo 2.1</div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-1), var(--color-6));">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <span>Elementos Clave de la Definición</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #FF6B6B;">
+                                <strong>"Equipo destinado a ser llevado o sujetado":</strong> La mayoría son llevados, pero algunos son sujetados (ej: pantallas de soldador de mano)
+                            </li>
+                            <li style="border-left-color: #EF476F;">
+                                <strong>"Por el trabajador":</strong> Solo aplicable a EPI utilizados por el trabajador en el lugar de trabajo
+                            </li>
+                            <li style="border-left-color: #FF9E00;">
+                                <strong>"Para que le proteja de uno o varios riesgos":</strong> Constituye una barrera entre el cuerpo y el peligro
+                            </li>
+                            <li style="border-left-color: #FB5607;">
+                                <strong>"Complemento o accesorio":</strong> Incluye componentes intercambiables esenciales para la función protectora (filtros respiratorios, filtros de soldadura)
+                            </li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-exclamation"></i>
+                            </div>
+                            <div>
+                                <strong>Importante:</strong> Los EPI se consideran como <strong>último recurso</strong> de protección, después de agotar las medidas técnicas de protección colectiva y organizativas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Exclusiones de la Definición -->
+            <div class="visual-card" id="exclusiones">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-2), var(--color-5));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Exclusiones de la Definición</div>
+                        <div class="card-subtitle">Artículo 2.2 - Lo que NO se considera EPI</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-2), var(--color-5));">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <span>Exclusiones Explícitas</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #4ECDC4;">
+                                <strong>Ropa de trabajo corriente y uniformes</strong> no específicamente destinados a proteger la salud o integridad física (ej: uniformes de hostelería, supermercados)
+                            </li>
+                            <li style="border-left-color: #118AB2;">
+                                <strong>Equipos de los servicios de socorro y salvamento</strong> (excepto cuando se usan para autoprotección durante tareas de salvamento)
+                            </li>
+                            <li style="border-left-color: #06D6A0;">
+                                <strong>EPI de militares, policías y servicios de mantenimiento del orden</strong> (por condiciones particulares que requieren legislación específica)
+                            </li>
+                            <li style="border-left-color: #3A86FF;">
+                                <strong>EPI de medios de transporte por carretera</strong> (cascos para motocicletas, etc.) regulados por legislación de tráfico
+                            </li>
+                            <li style="border-left-color: #8338EC;">
+                                <strong>Material de deporte</strong> usado en actividades deportivas privadas (sí aplica en actividades laborales deportivas)
+                            </li>
+                            <li style="border-left-color: #7209B7;">
+                                <strong>Material de autodefensa o disuasión</strong> (aerosoles de autodefensa, material de vigilantes de seguridad)
+                            </li>
+                            <li style="border-left-color: #FF006E;">
+                                <strong>Aparatos portátiles para detección y señalización de riesgos</strong> (detectores de gases, dosímetros)
+                            </li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <strong>Atención:</strong> Cuando un uniforme incorpora protección específica contra riesgos (ej: ropa de jardinería con elementos de alta visibilidad), SÍ está incluido en el ámbito de aplicación.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Obligaciones del Empresario -->
+            <div class="visual-card" id="obligaciones">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-3), var(--color-12));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Obligaciones del Empresario</div>
+                        <div class="card-subtitle">Artículo 3 - Responsabilidades principales</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-3), var(--color-12));">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <span>Obligaciones Clave del Empresario</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #FFD166;">
+                                <strong>Determinar puestos de trabajo</strong> que requieren protección individual (mediante evaluación de riesgos)
+                            </li>
+                            <li style="border-left-color: #FFB347;">
+                                <strong>Elegir los EPI</strong> conforme a lo dispuesto en los artículos 5 y 6
+                            </li>
+                            <li style="border-left-color: #FF9A3C;">
+                                <strong>Proporcionar gratuitamente</strong> los EPI a los trabajadores, reponiéndolos cuando sea necesario
+                            </li>
+                            <li style="border-left-color: #FF7F2A;">
+                                <strong>Velar por la utilización correcta</strong> de los EPI según artículo 7
+                            </li>
+                            <li style="border-left-color: #FF6B35;">
+                                <strong>Asegurar el mantenimiento</strong> de los equipos según artículo 7
+                            </li>
+                            <li style="border-left-color: #FF5722;">
+                                <strong>Documentar</strong> el control del riesgo mediante EPI en la planificación de la actividad preventiva
+                            </li>
+                        </ul>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                <i class="fas fa-euro-sign"></i>
+                            </div>
+                            <div>
+                                <strong>Importante:</strong> El coste de los EPI <strong>NO puede recaer sobre el trabajador</strong> bajo ningún concepto. Esto incluye EPI a medida o adaptados (calzado ortopédico, gafas graduadas).
+                            </div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div>
+                                <strong>Documentación requerida:</strong> El empresario debe crear y mantener un archivo de todos los EPI con fechas de fabricación, adquisición, caducidad, condiciones de uso, etc.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Criterios para el Empleo de EPI -->
+            <div class="visual-card" id="criterios">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-4), var(--color-8));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Criterios para el Empleo de EPI</div>
+                        <div class="card-subtitle">Artículo 4 - Cuándo deben utilizarse</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="definition-box">
+                        <div class="definition-title">Criterio General de Uso</div>
+                        <p>Los EPI deben utilizarse cuando existan riesgos para la seguridad o salud de los trabajadores que no hayan podido evitarse o limitarse suficientemente por medios técnicos de protección colectiva o mediante medidas, métodos o procedimientos de organización del trabajo.</p>
+                        <div class="legal-reference">Real Decreto, Artículo 4</div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-4), var(--color-8));">
+                                <i class="fas fa-list-ol"></i>
+                            </div>
+                            <span>Razones para considerar EPI como último recurso</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #06D6A0;">
+                                Protege solo a la persona que lo lleva, mientras medidas colectivas protegen a todos
+                            </li>
+                            <li style="border-left-color: #3A86FF;">
+                                Los niveles máximos de protección difícilmente se consiguen en la práctica
+                            </li>
+                            <li style="border-left-color: #00BBF9;">
+                                El nivel real de protección es complicado de evaluar
+                            </li>
+                            <li style="border-left-color: #00B4D8;">
+                                Puede limitar al usuario restringiendo movimientos o visibilidad
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <span>Situaciones que requieren uso de EPI</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #FF9E00;">
+                                Como medida <strong>transitoria</strong> hasta implementar medidas técnicas/organizativas
+                                <div class="danger-box" style="margin-top: 10px; margin-bottom: 10px;">
+                                    <i class="fas fa-exclamation-triangle" style="color: #F44336;"></i>
+                                    <strong>NO usar como medida transitoria en situaciones de riesgo grave e inminente</strong>
+                                </div>
+                            </li>
+                            <li style="border-left-color: #FFB300;">
+                                Cuando no existen soluciones técnicas razonables
+                            </li>
+                            <li style="border-left-color: #FFA000;">
+                                Exposiciones poco frecuentes y/o de corta duración
+                            </li>
+                            <li style="border-left-color: #FF8F00;">
+                                En operaciones de limpieza, mantenimiento, reparación donde se anulan temporalmente sistemas de protección
+                            </li>
+                            <li style="border-left-color: #FF6F00;">
+                                Cuando la información del fabricante indique necesidad de usar EPI
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Condiciones que deben reunir los EPI -->
+            <div class="visual-card" id="condiciones">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Condiciones de los EPI</div>
+                        <div class="card-subtitle">Artículo 5 - Requisitos esenciales</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-5), var(--color-2));">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <span>5.1.a) Responder a condiciones del lugar de trabajo</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #118AB2;">
+                                Adecuarse a temperatura (calor/frío), humedad ambiental, concentración de oxígeno
+                            </li>
+                            <li style="border-left-color: #4ECDC4;">
+                                Considerar esfuerzo físico, tiempo de uso, necesidades de visibilidad y comunicación
+                            </li>
+                            <li style="border-left-color: #06D6A0;">
+                                Evitar introducir nuevos riesgos (ej: golpe de calor por equipo que impide transpiración)
+                            </li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-thermometer-full"></i>
+                            </div>
+                            <div>
+                                <strong>Ejemplo importante:</strong> En aplicación de fitosanitarios en invernaderos, si las condiciones de temperatura y humedad hacen insoportable un traje de protección nivel 3, habría que limitar estrictamente el tiempo de uso o buscar alternativas compatibles.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span>5.1.b) Considerar condiciones del trabajador</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #FF9E00;">
+                                <strong>Talla y diseño:</strong> Fundamental definir talla adecuada, considerando diferencias entre hombres y mujeres
+                            </li>
+                            <li style="border-left-color: #FFB300;">
+                                <strong>Trabajadores especialmente sensibles:</strong> Por alergias (látex), condiciones médicas, etc.
+                            </li>
+                            <li style="border-left-color: #FFA000;">
+                                <strong>Trabajadoras embarazadas:</strong> Considerar cambios antropométricos y menor tolerancia al calor
+                            </li>
+                            <li style="border-left-color: #FF8F00;">
+                                <strong>Personas con discapacidad física:</strong> Puede requerir EPI personalizados o hechos a medida
+                            </li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-exclamation"></i>
+                            </div>
+                            <div>
+                                <strong>Modificaciones de EPI:</strong> Si es necesario adaptar un EPI a un usuario con discapacidad, la modificación debe ser realizada o aprobada por el fabricante. El empresario o usuario no deben modificar equipos por su cuenta.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #9C27B0, #BA68C8);">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <span>5.2) Compatibilidad entre EPI</span>
+                        </div>
+                        
+                        <p>En caso de riesgos múltiples que exijan la utilización simultánea de varios EPI, éstos deben ser compatibles entre sí y mantener su eficacia.</p>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div>
+                                <strong>Ejemplo de incompatibilidad:</strong> Ciertos tipos de mascarillas y gafas de protección no pueden llevarse a la vez porque su uso simultáneo impide el ajuste correcto de al menos uno de ellos.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #4CAF50, #81C784);">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <span>5.3) Cumplimiento normativo</span>
+                        </div>
+                        
+                        <p>Los EPI deben reunir los requisitos establecidos en cualquier disposición legal o reglamentaria que les sea de aplicación, en particular en lo relativo a su diseño y fabricación.</p>
+                        
+                        <div class="regulation-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #9C27B0, #BA68C8);">
+                                <i class="fas fa-flag-eu"></i>
+                            </div>
+                            <div>
+                                <strong>Reglamento (UE) 2016/425:</strong> Legislación aplicable en la mayoría de situaciones para diseño y fabricación de EPI.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Elección de EPI -->
+            <div class="visual-card" id="eleccion">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-7), var(--color-10));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Elección de los EPI</div>
+                        <div class="card-subtitle">Artículo 6 - Proceso de selección</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-7), var(--color-10));">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <span>6.1 Actuaciones para la elección</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #7209B7;">
+                                <strong>a) Analizar y evaluar riesgos existentes</strong> que no puedan evitarse por otros medios
+                            </li>
+                            <li style="border-left-color: #5A189A;">
+                                <strong>b) Definir características</strong> que deben reunir los EPI para garantizar su función
+                            </li>
+                            <li style="border-left-color: #3A0CA3;">
+                                <strong>c) Comparar características</strong> de EPI existentes en el mercado con las definidas
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <span>Proceso de Selección - Figura 1</span>
+                        </div>
+                        
+                        <div class="info-box" style="flex-direction: column; align-items: flex-start;">
+                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                                <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div>
+                                    <strong>Esquema para la selección del EPI adecuado</strong>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #2196F3;">
+                                <ol style="padding-left: 1.5rem;">
+                                    <li><strong>Identificar y evaluar riesgos</strong> (Art. 6.1.a)</li>
+                                    <li><strong>Definir el EPI necesario</strong> (Art. 6.1.b)
+                                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                                            <li>Características del trabajo (Arts. 5.1.a y 5.2)</li>
+                                            <li>Características del trabajador (Arts. 5.1.b y c)</li>
+                                            <li>Marcado CE (Art. 5.3)</li>
+                                            <li>Normas técnicas armonizadas</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Comparar con EPI existentes</strong> (Art. 6.1.c)
+                                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                                            <li>Posibles EPI adecuados</li>
+                                            <li>Consulta y participación de los trabajadores (Art. 9)</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div>
+                                <strong>Proceso iterativo:</strong> Los pasos no tienen un orden fijo, riguroso y cerrado. Se debe realizar la selección mediante interacción y retroalimentación entre los distintos apartados.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #4CAF50, #81C784);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <span>Participación de los trabajadores</span>
+                        </div>
+                        
+                        <p>Los trabajadores deben ser consultados e implicados en la definición y selección de las características del equipo. Si al final del proceso hay varios EPI potencialmente adecuados, es importante implicar al trabajador en la selección en relación con la comodidad, ajuste y preferencias personales.</p>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <div>
+                                <strong>Revisión periódica:</strong> La determinación de las características de los EPI debe revisarse en función de modificaciones en las circunstancias que motivaron su elección (evolución de la técnica, cambios en riesgos, nuevas normas, etc.).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Uso y Mantenimiento -->
+            <div class="visual-card" id="uso">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-9), var(--color-11));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Uso y Mantenimiento</div>
+                        <div class="card-subtitle">Artículo 7 - Correcta utilización y cuidado</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-9), var(--color-11));">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <span>7.1 Utilización según instrucciones</span>
+                        </div>
+                        
+                        <p>La utilización, almacenamiento, mantenimiento, limpieza, desinfección y reparación deben efectuarse de acuerdo con las instrucciones del fabricante.</p>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <strong>Tiempo de uso crítico:</strong> Quitarse un EPI incluso durante cortos periodos puede disminuir significativamente la protección. Ej: quitarse protección respiratoria brevemente reduce la protección total; en protectores auditivos la disminución tiene carácter <strong>exponencial</strong>.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-toolbox"></i>
+                            </div>
+                            <span>7.2 Mantenimiento adecuado</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #FB5607;">
+                                <strong>Limpieza y desinfección:</strong> Generalmente puede realizarla el trabajador, siguiendo instrucciones del fabricante
+                            </li>
+                            <li style="border-left-color: #FF006E;">
+                                <strong>Inspección periódica:</strong> Para detectar defectos, daños, desgaste, suciedad
+                            </li>
+                            <li style="border-left-color: #FF4D6D;">
+                                <strong>Almacenamiento:</strong> Respetar indicaciones del fabricante entre usos
+                            </li>
+                            <li style="border-left-color: #FF758F;">
+                                <strong>Reparación o sustitución:</strong> Solo usar repuestos previstos por el fabricante
+                            </li>
+                            <li style="border-left-color: #FF8FA3;">
+                                <strong>Eliminación:</strong> Cuando el EPI ha dejado de ser válido, debe eliminarse para impedir uso incorrecto
+                            </li>
+                        </ul>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <div>
+                                <strong>Restricción legal:</strong> Existe legislación específica que prohíbe explícitamente que los trabajadores se lleven los EPI y ropa de trabajo a su domicilio con fines de lavado (ej: RD 664/1997 para agentes biológicos, RD 665/1997 para agentes cancerígenos, RD 396/2006 para amianto).
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #4CAF50, #81C784);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <span>7.3 Uso personal vs. uso compartido</span>
+                        </div>
+                        
+                        <p>Los EPI están destinados, en principio, a un uso personal. Si las circunstancias exigen la utilización por varias personas, se adoptarán las medidas necesarias para que ello no origine ningún problema de salud o de higiene.</p>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-exclamation"></i>
+                            </div>
+                            <div>
+                                <strong>Casos de uso compartido:</strong> Personal ajeno a puestos de trabajo (inspectores, auditores) o situaciones de uso por periodos cortos/poco frecuentes (acceso a espacios confinados). El EPI debe estar perfectamente limpio y desinfectado.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Información y Formación -->
+            <div class="visual-card" id="formacion">
+                <div class="card-header" style="background: linear-gradient(135deg, var(--color-8), var(--color-4));">
+                    <div class="card-icon" style="background: rgba(255, 255, 255, 0.2);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <div class="card-title">Información y Formación</div>
+                        <div class="card-subtitle">Artículo 8 - Obligaciones formativas</div>
+                    </div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, var(--color-8), var(--color-4));">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <span>8.2 Información a trabajadores</span>
+                        </div>
+                        
+                        <p>El empresario debe informar a los trabajadores, previamente al uso de los equipos, de:</p>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #3A86FF;">
+                                <strong>Riesgos contra los que les protegen</strong>
+                            </li>
+                            <li style="border-left-color: #06D6A0;">
+                                <strong>Actividades u ocasiones en que deben utilizarse</strong>
+                            </li>
+                            <li style="border-left-color: #00BBF9;">
+                                <strong>Instrucciones preferentemente por escrito</strong> sobre forma correcta de utilizarlos y mantenerlos
+                            </li>
+                        </ul>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #2196F3, #21CBF3);">
+                                <i class="fas fa-sign-language"></i>
+                            </div>
+                            <div>
+                                <strong>Señalización obligatoria:</strong> El RD 485/1997 sobre señalización de seguridad y salud en el trabajo obliga a señalizar los lugares donde el uso de EPI es obligatorio.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <span>8.3 Formación y entrenamiento</span>
+                        </div>
+                        
+                        <p>El empresario garantizará la formación y organizará, en su caso, sesiones de entrenamiento para la utilización de EPI, especialmente cuando se requiera la utilización simultánea de varios equipos que por su especial complejidad así lo haga necesario.</p>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <strong>Contenido mínimo de formación:</strong> Riesgo frente al que protege, partes del cuerpo a proteger, modo de funcionamiento, limitaciones, colocación correcta, uso/mantenimiento/limpieza, almacenamiento, casos especiales, señalización, riesgos previsibles del propio equipo.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: linear-gradient(135deg, #9C27B0, #BA68C8);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <span>Artículo 10 - Obligaciones de los trabajadores</span>
+                        </div>
+                        
+                        <ul class="visual-list">
+                            <li style="border-left-color: #7209B7;">
+                                <strong>a) Utilizar y cuidar correctamente</strong> los EPI
+                            </li>
+                            <li style="border-left-color: #5A189A;">
+                                <strong>b) Colocar el EPI después de su utilización</strong> en el lugar indicado
+                            </li>
+                            <li style="border-left-color: #3A0CA3;">
+                                <strong>c) Informar de inmediato</strong> de cualquier defecto, anomalía o daño apreciado en el EPI
+                            </li>
+                        </ul>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div>
+                                <strong>Consecuencias del incumplimiento:</strong> El incumplimiento por el trabajador de sus obligaciones puede dar lugar a la adopción de medidas disciplinarias por parte del empresario conforme al artículo 58.1 del Real Decreto Legislativo 2/2015 (Estatuto de los Trabajadores).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    
+    <!-- Botón flotante -->
+    <button class="floating-btn" id="scrollTopBtn" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Footer -->
+    <footer class="visual-footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 2rem;">Guía Técnica Completa de EPIs</h2>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9;">
+                    Basada en el documento "PARA LA UTILIZACIÓN POR LOS TRABAJADORES DE EQUIPOS DE PROTECCIÓN INDIVIDUAL" del Instituto Nacional de Seguridad y Salud en el Trabajo (INSST) y el Real Decreto correspondiente
+                </p>
+                
+                <div class="footer-icons">
+                    <div class="footer-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2.5rem;">
+                    <p style="opacity: 0.8; font-size: 0.95rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-info-circle"></i> Esta información es de carácter técnico-legal y debe complementarse con asesoramiento especializado y evaluación de riesgos específica.
+                    </p>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">
+                        © 2023 Guía Técnica de EPIs - Basado en normativa INSST y Real Decreto
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Botón para volver arriba
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Efecto de animación al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animación para los elementos de lista
+            const listItems = document.querySelectorAll('.visual-list li');
+            listItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, 100 + index * 50);
+            });
+            
+            // Animación para las tarjetas
+            const cards = document.querySelectorAll('.visual-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300 + index * 150);
+            });
+            
+            // Animación para cajas especiales
+            const boxes = document.querySelectorAll('.warning-box, .danger-box, .info-box, .success-box, .regulation-box');
+            boxes.forEach((box, index) => {
+                box.style.opacity = '0';
+                box.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    box.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    box.style.opacity = '1';
+                    box.style.transform = 'scale(1)';
+                }, 500 + index * 50);
+            });
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Resaltar números importantes
+        function highlightNumbers() {
+            const contentElements = document.querySelectorAll('.card-content p, .card-content li, .box-content');
+            contentElements.forEach(element => {
+                const text = element.innerHTML;
+                // Buscar números importantes (4 horas, 6 kN, 50V, etc.)
+                const regex = /(\d+\.?\d*)\s*(horas?|kN|V|kV|CA|CC|N|Ω|kVA)/gi;
+                const highlighted = text.replace(regex, '<span class="highlight-number">$1 $2</span>');
+                
+                // También resaltar números específicos mencionados en el texto
+                const specificNumbers = text.replace(/(4\s*horas?)/gi, '<span class="highlight-number">$1</span>')
+                                           .replace(/(6\s*kN)/gi, '<span class="highlight-number">$1</span>')
+                                           .replace(/(50\s*V)/gi, '<span class="highlight-number">$1</span>')
+                                           .replace(/(75\s*V)/gi, '<span class="highlight-number">$1</span>')
+                                           .replace(/(250\s*V)/gi, '<span class="highlight-number">$1</span>')
+                                           .replace(/(125\s*kVA)/gi, '<span class="highlight-number">$1</span>')
+                                           .replace(/(100\s*N)/gi, '<span class="highlight-number">$1</span>')
+                                           .replace(/(150\s*N)/gi, '<span class="highlight-number">$1</span>')
+                                           .replace(/(275\s*N)/gi, '<span class="highlight-number">$1</span>');
+                
+                if (specificNumbers !== text) {
+                    element.innerHTML = specificNumbers;
+                }
+            });
+        }
+        
+        // Ejecutar al cargar
+        document.addEventListener('DOMContentLoaded', highlightNumbers);
+    </script>
+</body>
+</html>

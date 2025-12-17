@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía EPI: Condiciones y Elección de EPI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "🛡️";
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 18px 25px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .condiciones { background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); }
+        .eleccion { background: linear-gradient(135deg, #614385 0%, #516395 100%); }
+        .documentacion { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            padding: 15px;
+            background: #eff0f1;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            margin-top: 18px;
+        }
+        
+        .feature-item:hover {
+            background: #e9ecef;
+            border-left-color: #2a5298;
+            transform: translateX(5px);
+        }
+        
+        .feature-icon {
+            margin-right: 12px;
+            font-size: 1.4rem;
+            color: #2a5298;
+            min-width: 35px;
+            text-align: center;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            background: #1e3c72;
+            color: white;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .footer::before {
+            content: "📋";
+            position: absolute;
+            font-size: 6rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .element-details {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+        
+        .numeric-data {
+            color: #e74c3c;
+            font-weight: bold;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .reglamento-data {
+            color: #2ecc71;
+            font-weight: bold;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #ffeaa7;
+            border-left: 5px solid #fdcb6e;
+            padding: 18px;
+            margin: 18px 0;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 60px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .warning-box::before {
+            content: "⚠️";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+        }
+        
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+        
+        .type-item {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .type-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+        }
+        
+        .type-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .type-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .card-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 0;
+            border-color: transparent rgba(255,255,255,0.3) transparent transparent;
+            z-index: 1;
+        }
+        
+        .pasos-list {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .pasos-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2ecc71;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legal-reference {
+            background: #f1f8ff;
+            border-left: 4px solid #1e3c72;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .legal-reference strong {
+            color: #1e3c72;
+        }
+        
+        .compact-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+        
+        .compact-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .compact-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .list-icon {
+            margin-right: 10px;
+            color: #2a5298;
+            min-width: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .exclusion-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .exclusion-item {
+            flex: 1 1 300px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .exclusion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .exclusion-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .exclusion-icon {
+            font-size: 1.5rem;
+            color: #3498db;
+        }
+        
+        /* ESTILOS FLEX PARA BLOQUES */
+        .obligacion-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .obligacion-item {
+            flex: 1 1 350px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #1a2980;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .obligacion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .obligacion-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #1a2980;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .obligacion-icon {
+            font-size: 1.5rem;
+            color: #1a2980;
+            min-width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* BLOQUES INTERNOS FLEX */
+        .flex-subgrid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .flex-subitem {
+            flex: 1 1 200px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #26d0ce;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .flex-subtitle {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        
+        .info-box {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .info-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .example-box {
+            background: #e8f6f3;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #1abc9c;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #16a085;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .flow-diagram {
+            background: #f9f9f9;
+            border: 2px dashed #3498db;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .flow-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.2rem;
+        }
+        
+        .flow-step {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #3498db;
+            text-align: left;
+        }
+        
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: #3498db;
+            margin: 10px 0;
+        }
+
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-header {
+                font-size: 1.1rem;
+                padding: 15px 20px;
+            }
+            
+            .feature-item {
+                padding: 12px;
+            }
+            
+            .obligacion-item {
+                flex-basis: 100%;
+            }
+            
+            .flex-subitem {
+                flex-basis: 100%;
+            }
+            
+            .exclusion-item {
+                flex-basis: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .obligacion-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .obligacion-icon {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Guía EPI: Condiciones y Elección de EPI</h1>
+            <div class="subtitle">Artículos 5 y 6 - Real Decreto sobre Equipos de Protección Individual</div>
+        </header>
+        
+        <div class="grid-container">
+            <!-- Artículo 5: Condiciones que deben reunir los EPI -->
+            <div class="card full-width">
+                <div class="card-corner"></div>
+                <div class="card-header condiciones">
+                    <span>✅</span> Artículo 5: Condiciones que deben reunir los equipos de protección individual
+                </div>
+                <div class="card-content">
+                    <div class="feature-item" style="margin-top: 0;">
+                        <div class="feature-icon">📋</div>
+                        <div>
+                            <strong>Principio general</strong><br>
+                            Los EPI deben proporcionar una protección eficaz frente a los riesgos que motivan su uso, sin suponer por sí mismos u ocasionar riesgos adicionales ni molestias innecesarias.
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">1️⃣</div>
+                        <div>
+                            <strong>Condiciones básicas (artículo <span class="numeric-data">5.1</span>)</strong><br>
+                            Los EPI deberán cumplir con los siguientes requisitos fundamentales:
+                        </div>
+                    </div>
+                    
+                    <div class="obligacion-grid">
+                        <!-- Condición a) -->
+                        <div class="obligacion-item" style="flex: 1 1 500px;">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">🌡️</span>
+                                <span>a) Responder a las condiciones del lugar de trabajo</span>
+                            </div>
+                            <div class="element-details">
+                                El EPI debe adecuarse a las condiciones del lugar de trabajo en el que puede ocurrir la exposición.
+                            </div>
+                            
+                            <div class="flex-subgrid">
+                                <div class="flex-subitem">
+                                    <div class="flex-subtitle">
+                                        <span>🔥</span>
+                                        <span>Factores ambientales</span>
+                                    </div>
+                                    <div class="element-details">
+                                        • Temperatura (calor/frío)<br>
+                                        • Humedad ambiental<br>
+                                        • Concentración de oxígeno<br>
+                                        • Atmósferas explosivas
+                                    </div>
+                                </div>
+                                
+                                <div class="flex-subitem">
+                                    <div class="flex-subtitle">
+                                        <span>💼</span>
+                                        <span>Factores laborales</span>
+                                    </div>
+                                    <div class="element-details">
+                                        • Esfuerzo físico que debe realizar<br>
+                                        • Tiempo durante el que debe llevarse<br>
+                                        • Necesidades de visibilidad y comunicación
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="example-box">
+                                <div class="example-title">
+                                    <span>🌿</span>
+                                    <span>Ejemplo: Aplicación de fitosanitarios en invernaderos</span>
+                                </div>
+                                <div class="element-details">
+                                    Un traje de protección nivel <span class="numeric-data">3</span> para fitosanitarios puede ser insoportable por tiempo prolongado en condiciones de alta temperatura y humedad. En este caso, se debe limitar estrictamente el tiempo de uso y planificar la aplicación en la franja horaria más favorable.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Condición b) -->
+                        <div class="obligacion-item" style="flex: 1 1 500px;">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">👤</span>
+                                <span>b) Tener en cuenta condiciones anatómicas, fisiológicas y estado de salud</span>
+                            </div>
+                            <div class="element-details">
+                                El EPI es para uso individual y debe adaptarse a la persona que lo usa.
+                            </div>
+                            
+                            <div class="info-box">
+                                <div class="info-title">
+                                    <span>📏</span>
+                                    <span>Talla y diseño</span>
+                                </div>
+                                <div class="element-details">
+                                    • Debe adaptarse a la anatomía y fisiología del portador<br>
+                                    • Considerar diferencias entre hombres y mujeres<br>
+                                    • Puede requerir más de un tipo o talla para un mismo puesto<br>
+                                    • Cubrir el rango necesario puede implicar distintos modelos
+                                </div>
+                            </div>
+
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>⚠️</span>
+                                    <span>Trabajadores especialmente sensibles</span>
+                                </div>
+                                <div class="element-details">
+                                    Según artículo <span class="numeric-data">25</span> LPRL, el empresario debe garantizar protección específica a trabajadores con características personales o estado biológico que les hagan especialmente sensibles.
+                                </div>
+                                <div class="example-box" style="margin-top: 5px; font-size: 0.9rem;">
+                                    <strong>Ejemplo:</strong> Alergia al látex → proporcionar guantes de material alternativo (PVC, nitrilo, neopreno).
+                                </div>
+                            </div>
+                            
+                            <div class="flex-subgrid">
+                                <div class="flex-subitem">
+                                    <div class="flex-subtitle">
+                                        <span>🚺</span>
+                                        <span>Trabajadoras embarazadas</span>
+                                    </div>
+                                    <div class="element-details">
+                                        Presentan características antropométricas y fisiológicas particulares. Menor tolerancia al calor excesivo. Necesitan especial atención en la selección del EPI.
+                                    </div>
+                                </div>
+                                
+                                <div class="flex-subitem">
+                                    <div class="flex-subtitle">
+                                        <span>♿</span>
+                                        <span>Personas con discapacidad</span>
+                                    </div>
+                                    <div class="element-details">
+                                        Puede ser necesario recurrir a EPI personalizados o hechos a medida. Las modificaciones deben ser realizadas o aprobadas por el fabricante.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- Condición c) -->
+                        <div class="obligacion-item" style="flex: 1 1 500px;">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">🎯</span>
+                                <span>c) Adecuarse al portador, tras los ajustes necesarios</span>
+                            </div>
+                            <div class="element-details">
+                                El EPI debe adaptarse correctamente al usuario. Un mal ajuste puede implicar disminución o inexistencia de protección.
+                            </div>
+                            
+                            <div class="example-box">
+                                <div class="example-title">
+                                    <span>😷</span>
+                                    <span>Ejemplo: Protección respiratoria</span>
+                                </div>
+                                <div class="element-details">
+                                    Cuando la eficacia se basa en un correcto ajuste a la cara (máscaras), la protección puede quedar anulada por barba, estructura facial particular, etc.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">2️⃣</div>
+                        <div>
+                            <strong>Compatibilidad para riesgos múltiples (artículo <span class="numeric-data">5.2</span>)</strong><br>
+                            Cuando se requiera protección simultánea frente a varios riesgos:
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <div class="info-title">
+                            <span>🔄</span>
+                            <span>Compatibilidad entre EPI</span>
+                        </div>
+                        <div class="element-details">
+                            Los EPI deben ser compatibles entre sí y mantener su eficacia en relación con el riesgo o riesgos correspondientes.
+                        </div>
+                        
+                        <div class="element-details" style="margin-top: 10px;">
+                            <strong>Atención especial:</strong> Compatibilidad entre EPI de protección de cabeza, ojos y cara, y respiratorio cuando deban usarse simultáneamente.
+                        </div>
+                        
+                        <div class="element-details" style="margin-top: 10px;">
+                            <strong>Importante:</strong> Seguir instrucciones del fabricante acerca de compatibilidad entre equipos.
+                        </div>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="example-title">
+                            <span>😷</span>
+                            <span>Ejemplo de incompatibilidad</span>
+                        </div>
+                        <div class="element-details">
+                            Ciertos tipos de mascarillas y gafas de protección no pueden llevarse a la vez porque su uso simultáneo impide el ajuste correcto de al menos uno de ellos.
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">3️⃣</div>
+                        <div>
+                            <strong>Cumplimiento normativo (artículo <span class="numeric-data">5.3</span>)</strong><br>
+                            Los EPI deben reunir los requisitos establecidos en cualquier disposición legal o reglamentaria aplicable.
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <div class="info-title">
+                            <span>🇪🇺</span>
+                            <span>Reglamento (UE) <span class="numeric-data">2016/425</span></span>
+                        </div>
+                        <div class="element-details">
+                            Legislación aplicable en la mayoría de las situaciones en materia de diseño y fabricación de EPI.
+                        </div>
+                    </div>
+                    
+                    <div class="legal-reference">
+                        <strong>Apéndice <span class="numeric-data">2</span>:</strong> Proporciona información adicional relativa a este requisito imprescindible para poder aplicar correctamente lo establecido en el artículo <span class="numeric-data">6</span>.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Artículo 6: Elección de los EPI -->
+            <div class="card full-width">
+                <div class="card-corner"></div>
+                <div class="card-header eleccion">
+                    <span>🔍</span> Artículo 6: Elección de los equipos de protección individual
+                </div>
+                <div class="card-content">
+                    <div class="feature-item" style="margin-top: 0;">
+                        <div class="feature-icon">📋</div>
+                        <div>
+                            <strong>Proceso de selección</strong><br>
+                            El empresario debe llevar a cabo las siguientes actuaciones para elegir los EPI adecuados.
+                        </div>
+                    </div>
+                    
+                    <!-- Diagrama de flujo -->
+                    <div class="flow-diagram">
+                        <div class="flow-title">Esquema para la selección del EPI adecuado</div>
+                        
+                        <div class="diagram-grid">
+                        <div class="flow-step">
+                            <strong>1. Identificar y evaluar riesgos</strong><br>
+                            <span class="element-details">Artículo <span class="numeric-data">6.1.a</span> - Analizar y evaluar riesgos existentes que no puedan evitarse por otros medios.</span>
+                        </div>
+                        <div class="flow-step" style="display: flex; align-items: center;">
+                            <div class="element-details">
+                                    • Vías de entrada. Parte del cuerpo a proteger<br>                                   
+                                    • Naturaleza y magnitud de la exposición
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        
+                        <div class="diagram-grid">
+                        <div class="flow-step">
+                            <strong>2. Definir características del EPI necesario</strong><br>
+                            <span class="element-details">Artículo <span class="numeric-data">6.1.b</span> - Definir características que deberán reunir los EPI para garantizar su función.</span>
+                        </div>
+                        <div class="flow-step" style="display: flex; align-items: center;">
+                            <div class="element-details">
+                                    • Características del trabajo<br>
+                                    • Características del trabajador<br>
+                                    • Marcado CE<br>
+                                    • Normas técnicas armonizadas
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        
+                        <div class="diagram-grid">
+                        <div class="flow-step">
+                            <strong>3. Comparar con EPI existentes en el mercado</strong><br>
+                            <span class="element-details">Artículo <span class="numeric-data">6.1.c</span> - Comparar características de EPI existentes con las definidas.</span>
+                        </div>
+                        <div class="flow-step" style="display: flex; align-items: center;">
+                            <div class="element-details">
+                                    • Posibles EPI adecuados<br>
+                                    • Consulta y participación de los trabajadores
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+
+                <!-- Proceso de selección - Introducción -->
+                    <div class="feature-item">
+                        <div class="feature-icon">📋</div>
+                        <div>
+                            <strong>Los pasos a seguir</strong><br>
+                            Los pasos para seleccionar EPI no tienen orden fijo. Se requiere interacción y retroalimentación entre apartados para conseguir protección efectiva.
+                        </div>
+                    </div>
+
+                    <!-- Identificar y evaluar riesgos -->
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <div>
+                            <strong>1. Identificar y evaluar riesgos (Art. 6.1.a)</strong><br>
+                            Determinar riesgos no eliminables por medidas técnicas u organizativas que requieran EPI como única protección.
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-title">
+                            <span>📊</span>
+                            <span>Evaluación específica</span>
+                        </div>
+                        <div class="element-details">
+                            Cada riesgo requiere evaluación individual. No todos los EPI para un mismo tipo de riesgo sirven para todas sus formas o niveles de magnitud.
+                        </div>
+                        <div class="example-box" style="margin-top: 10px;">
+                            <div class="example-title">
+                                <span>🧪</span>
+                                <span>Ejemplo: Dimetilformamida</span>
+                            </div>
+                            <div class="element-details">
+                                Un guante que protege frente a otros disolventes no necesariamente protege igual frente a dimetilformamida.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Características del trabajo y trabajador en paralelo -->
+                    <div class="obligacion-grid">
+                        <div class="obligacion-item">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">👷</span>
+                                <span>Analizar características del trabajo</span>
+                            </div>
+                            <div class="element-details">
+                                Según artículos <span class="numeric-data">5.1.a</span> y <span class="numeric-data">5.2</span>.<br><br>
+                                • Esfuerzo físico requerido<br>
+                                • Tiempo de uso del EPI<br>
+                                • Necesidades de visibilidad/comunicación<br>
+                                • Compatibilidad entre EPI
+                            </div>
+                            <div class="example-box" style="margin-top: 15px;">
+                                <div class="example-title">
+                                    <span>🧤</span>
+                                    <span>Ejemplo: Nivel de desteridad</span>
+                                </div>
+                                <div class="element-details">
+                                    Tareas que requieren precisión (como limpieza de objetos) necesitan guantes con alto nivel de desteridad.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="obligacion-item">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">👤</span>
+                                <span>Analizar características del trabajador</span>
+                            </div>
+                            <div class="element-details">
+                                Según artículos <span class="numeric-data">5.1.b</span> y <span class="numeric-data">c</span>.<br><br>
+                                • Talla y anatomía<br>
+                                • Alergias (ej: látex)<br>
+                                • Discapacidades<br>
+                                • Diferencias hombre/mujer<br>
+                                • Estado de salud
+                            </div>
+                            <div class="example-box" style="margin-top: 15px;">
+                                <div class="example-title">
+                                    <span>⚠️</span>
+                                    <span>Ejemplo: Alergia al látex</span>
+                                </div>
+                                <div class="element-details">
+                                    Si hay alergia al látex, seleccionar guantes de PVC, nitrilo o neopreno.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Definir características del EPI -->
+                    <div class="feature-item">
+                        <div class="feature-icon">📝</div>
+                        <div>
+                            <strong>2. Definir características del EPI necesario (Art. 6.1.b)</strong><br>
+                            Listar especificaciones técnicas requeridas para protección adecuada.
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="example-title">
+                            <span>📋</span>
+                            <span>Ejemplo completo: Guante de protección química</span>
+                        </div>
+                        <div class="element-details">
+                            • Guante de protección química<br>
+                            • Resistencia a permeación frente a dimetilformamida<br>
+                            • Nivel de desteridad: <span class="numeric-data">5</span><br>
+                            • Material: no látex<br>
+                            • Disponible en varias tallas
+                        </div>
+                    </div>
+
+                    <!-- Marcado CE y Normas técnicas -->
+                    <div class="obligacion-grid">
+                        <div class="obligacion-item">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">🏷️</span>
+                                <span>Marcado CE obligatorio</span>
+                            </div>
+                            <div class="element-details">
+                                Cumplir Reglamento (UE) <span class="numeric-data">2016/425</span>.<br><br>
+                                <strong>Categorías EPI:</strong><br>
+                                • I: Riesgos menores<br>
+                                • II: Riesgos intermedios<br>
+                                • III: Riesgos graves/mortales
+                            </div>
+                            <div class="example-box" style="margin-top: 15px;">
+                                <div class="example-title">
+                                    <span>🧤</span>
+                                    <span>Ejemplo: Categoría III</span>
+                                </div>
+                                <div class="element-details">
+                                    Guantes químicos son categoría <span class="numeric-data">III</span>. Deben llevar marcado CE + número Organismo Notificado.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="obligacion-item">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">📚</span>
+                                <span>Normas técnicas armonizadas</span>
+                            </div>
+                            <div class="element-details">
+                                • Clasifican EPI según protección<br>
+                                • Incluyen símbolos específicos<br>
+                                • Folleto informativo es RESS esencial<br>
+                                • Conocimiento necesario para interpretación
+                            </div>
+                            <div class="warning-box" style="margin: 15px 0 0 0;">
+                                <strong>Limitación:</strong> Comportamiento en laboratorio ≠ protección real en puesto de trabajo. Evaluar en condiciones reales.
+                            </div>
+                            <div class="example-box" style="margin-top: 15px;">
+                                <div class="example-title">
+                                    <span>📝</span>
+                                    <span>Ejemplo: Norma aplicable</span>
+                                </div>
+                                <div class="element-details">
+                                    Guante químico: marcado con norma UNE-EN <span class="numeric-data">374-1</span>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparar con mercado -->
+                    <div class="feature-item">
+                        <div class="feature-icon">🛒</div>
+                        <div>
+                            <strong>3. Comparar con EPI disponibles (Art. 6.1.c)</strong><br>
+                            Evaluar opciones del mercado según características definidas.
+                        </div>
+                    </div>
+
+                    <div class="type-grid">
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>📞</span>
+                                Solicitar información
+                            </div>
+                            <div class="element-details">
+                                Contactar fabricantes para asegurar protección requerida en condiciones específicas de trabajo.
+                            </div>
+                        </div>
+                        
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>⚙️</span>
+                                Aspectos adicionales
+                            </div>
+                            <div class="element-details">
+                                • Mantenimiento y caducidad<br>
+                                • Compatibilidad con otros EPI<br>
+                                • Prestaciones ergonómicas<br>
+                                • Condiciones limpieza/lavado
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>Búsqueda exhaustiva:</strong> Puede no haber muchas opciones que cumplan todas las especificaciones. Toda decisión debe basarse en información técnica y estar justificada.
+                    </div>
+
+                    <!-- Participación trabajadores -->
+                    <div class="feature-item">
+                        <div class="feature-icon">👥</div>
+                        <div>
+                            <strong>Participación de trabajadores</strong><br>
+                            Consultar sobre comodidad, ajuste y preferencias para mayor aceptación y uso efectivo.
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-title">
+                            <span>💡</span>
+                            <span>Beneficios</span>
+                        </div>
+                        <div class="element-details">
+                            • Conocen problemas reales del trabajo<br>
+                            • Mayor probabilidad de aceptación<br>
+                            • Mejoran ajuste y comodidad<br>
+                            • Consulta en cualquier momento del proceso
+                        </div>
+                        <div class="legal-reference" style="margin-top: 15px;">
+                            <strong>Coordinación interna:</strong> Unidad de adquisición debe coordinar con unidad usuaria y servicio de prevención, considerando características técnicas y exigencias legales.
+                        </div>
+                    </div>
+
+                    <!-- Verificación conformidad (Apartado 2) -->
+                    <div class="feature-item">
+                        <div class="feature-icon">✅</div>
+                        <div>
+                            <strong>Verificación de conformidad (Art. 6.2)</strong><br>
+                            Confirmar que EPI seleccionado cumple condiciones y requisitos del artículo <span class="numeric-data">5</span>.
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-title">
+                            <span>🔄</span>
+                            <span>Proceso continuo</span>
+                        </div>
+                        <div class="element-details">
+                            La selección es solo el primer paso. Continúa con:<br><br>
+                            1. Uso correcto del EPI<br>
+                            2. Cuidado y mantenimiento adecuado<br>
+                            3. Formación e información a trabajadores<br>
+                            4. Supervisión del uso
+                        </div>
+                    </div>
+
+                    <!-- Revisión periódica (Apartado 3) -->
+                    <div class="feature-item">
+                        <div class="feature-icon">📅</div>
+                        <div>
+                            <strong>Revisión periódica (Art. 6.3)</strong><br>
+                            Actualizar selección ante cambios en riesgos, tecnología o normativa.
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-title">
+                            <span>🔧</span>
+                            <span>Principio de evolución técnica</span>
+                        </div>
+                        <div class="element-details">
+                            Artículo <span class="numeric-data">15</span> LPRL: "tener en cuenta la evolución de la técnica".<br><br>
+                            La evolución técnica puede:<br>
+                            • Eliminar riesgos existentes<br>
+                            • Crear nuevos riesgos<br>
+                            • Ofrecer mejores medidas de protección<br>
+                            • Hacer obsoletos EPI actuales
+                        </div>
+                    </div>
+
+                    <div class="obligacion-grid">
+                        <div class="obligacion-item">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">🔇</span>
+                                <span>Ejemplo: Sustitución de maquinaria</span>
+                            </div>
+                            <div class="element-details">
+                                Máquina antigua ruidosa → requiere protectores auditivos.<br>
+                                Máquina moderna silenciosa → no requiere protectores.<br><br>
+                                <strong>Conclusión:</strong> Evolución técnica elimina necesidad de EPI.
+                            </div>
+                        </div>
+                        
+                        <div class="obligacion-item">
+                            <div class="obligacion-header">
+                                <span class="obligacion-icon">🧪</span>
+                                <span>Ejemplo: Nueva norma fitosanitarios</span>
+                            </div>
+                            <div class="element-details">
+                                <span class="numeric-data">2017</span>: Publicación norma UNE-EN ISO <span class="numeric-data">27065</span><br>
+                                <span class="numeric-data">2019</span>: Modificación<br><br>
+                                <strong>Consecuencia:</strong> Nuevas compras deben seleccionar trajes conforme a norma actualizada.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legal-reference">
+                        <strong>Recursos:</strong> Para información detallada, consultar Fichas de selección y uso de equipos en web del INSST (Apéndice <span class="numeric-data">4</span>).
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Documentación y Referencias -->
+            <div class="card full-width">
+                <div class="card-corner"></div>
+                <div class="card-header documentacion">
+                    <span>📊</span> Documentación y Referencias
+                </div>
+                <div class="card-content">
+                    <div class="feature-item" style="margin-top: 0;">
+                        <div class="feature-icon">📁</div>
+                        <div>
+                            <strong>Documentación según LPRL</strong><br>
+                            Artículo <span class="numeric-data">23</span> LPRL establece la documentación en prevención de riesgos laborales.
+                        </div>
+                    </div>
+                    
+                    <div class="type-grid">
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>📄</span>
+                                Control del riesgo con EPI
+                            </div>
+                            <div class="element-details">
+                                Incluir en planificación de la actividad preventiva el control del riesgo mediante utilización de EPI.
+                            </div>
+                        </div>
+                        
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>📊</span>
+                                Controles periódicos
+                            </div>
+                            <div class="element-details">
+                                Realizar controles periódicos de las condiciones de trabajo, que incluyen los EPI utilizados.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🔗</div>
+                        <div>
+                            <strong>Referencias normativas mencionadas</strong><br>
+                            • Reglamento (UE) <span class="numeric-data">2016/425</span>: Diseño y fabricación de EPI<br>
+                            • Artículo <span class="numeric-data">25</span> LPRL: Trabajadores especialmente sensibles<br>
+                            • Artículo <span class="numeric-data">15</span> LPRL: Principios de acción preventiva<br>
+                            • Artículo <span class="numeric-data">23</span> LPRL: Documentación en PRL
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📚</div>
+                        <div>
+                            <strong>Apéndices de referencia</strong><br>
+                            • Apéndice <span class="numeric-data">2</span>: Información sobre requisitos de diseño y fabricación<br>
+                            • Apéndice <span class="numeric-data">4</span>: Fichas de selección y uso de equipos (web INSST)<br>
+                            • Anexo I: Esquema indicativo de riesgos y partes del cuerpo a proteger<br>
+                            • Anexo II: Lista no exhaustiva de tipos de EPI
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🌐</div>
+                        <div>
+                            <strong>Recursos web INSST</strong><br>
+                            • Sección de Equipos de Protección Individual<br>
+                            • Fichas de selección y uso de equipos<br>
+                            • Sección normativa: Maternidad, menores y trabajadores especialmente sensibles
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Guía basada en los Artículos <span class="numeric-data">5</span> y <span class="numeric-data">6</span> del RD sobre Equipos de Protección Individual</p>
+            <p>Información extraída del documento "24. EPIS Y ERAS-8-14.pdf"</p>
+        </div>
+    </div>
+</body>
+</html>

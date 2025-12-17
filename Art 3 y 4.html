@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía EPI: Obligaciones del Empresario y Criterios de Empleo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "🏢";
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 18px 25px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .obligaciones { background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); }
+        .criterios { background: linear-gradient(135deg, #614385 0%, #516395 100%); }
+        .documentacion { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            padding: 15px;
+            background: #eff0f1;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            margin-top: 18px;
+        }
+        
+        .feature-item:hover {
+            background: #e9ecef;
+            border-left-color: #2a5298;
+            transform: translateX(5px);
+        }
+        
+        .feature-icon {
+            margin-right: 12px;
+            font-size: 1.4rem;
+            color: #2a5298;
+            min-width: 35px;
+            text-align: center;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            background: #1e3c72;
+            color: white;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .footer::before {
+            content: "📋";
+            position: absolute;
+            font-size: 6rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .element-details {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+        
+        .numeric-data {
+            color: #e74c3c;
+            font-weight: bold;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .reglamento-data {
+            color: #2ecc71;
+            font-weight: bold;
+            background: rgba(46, 204, 113, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #ffeaa7;
+            border-left: 5px solid #fdcb6e;
+            padding: 18px;
+            margin: 18px 0;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 60px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .warning-box::before {
+            content: "⚠️";
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+        }
+        
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+        
+        .type-item {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .type-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+        }
+        
+        .type-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .type-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .card-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 0;
+            border-color: transparent rgba(255,255,255,0.3) transparent transparent;
+            z-index: 1;
+        }
+        
+        .pasos-list {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .pasos-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2ecc71;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legal-reference {
+            background: #f1f8ff;
+            border-left: 4px solid #1e3c72;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .legal-reference strong {
+            color: #1e3c72;
+        }
+        
+        .compact-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+        
+        .compact-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .compact-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .list-icon {
+            margin-right: 10px;
+            color: #2a5298;
+            min-width: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .exclusion-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .exclusion-item {
+            flex: 1 1 300px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        .exclusion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .exclusion-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .exclusion-icon {
+            font-size: 1.5rem;
+            color: #3498db;
+        }
+        
+        .obligacion-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #1a2980;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .obligacion-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #1a2980;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .obligacion-icon {
+            font-size: 1.5rem;
+            color: #1a2980;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-header {
+                font-size: 1.1rem;
+                padding: 15px 20px;
+            }
+            
+            .feature-item {
+                padding: 12px;
+            }
+            
+            .exclusion-item, .obligacion-item {
+                flex-basis: 100%;
+            }
+        }
+                /* ESTILOS FLEX PARA BLOQUES */
+        .obligacion-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .obligacion-item {
+            flex: 1 1 350px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #1a2980;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .obligacion-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .obligacion-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #1a2980;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .obligacion-icon {
+            font-size: 1.5rem;
+            color: #1a2980;
+            min-width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* BLOQUES INTERNOS FLEX */
+        .flex-subgrid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .flex-subitem {
+            flex: 1 1 200px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #26d0ce;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .flex-subtitle {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        
+        .card-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 0;
+            border-color: transparent rgba(255,255,255,0.3) transparent transparent;
+            z-index: 1;
+        }
+        
+        .pasos-list {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .pasos-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2ecc71;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .card-header {
+                font-size: 1.1rem;
+                padding: 15px 20px;
+            }
+            
+            .feature-item {
+                padding: 12px;
+            }
+            
+            .obligacion-item {
+                flex-basis: 100%;
+            }
+            
+            .flex-subitem {
+                flex-basis: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .obligacion-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .obligacion-icon {
+                align-self: flex-start;
+            }
+        }
+        
+        .highlight-box {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Guía EPI: Obligaciones del Empresario y Criterios de Empleo</h1>
+            <div class="subtitle">Artículos 3 y 4 - Real Decreto sobre Equipos de Protección Individual</div>
+        </header>
+        
+        <div class="grid-container">
+            <!-- Artículo 3: Obligaciones del Empresario -->
+            <div class="card full-width">
+            <div class="card-corner"></div>
+            <div class="card-header obligaciones">
+                <span>👔</span> Artículo 3: Obligaciones Generales del Empresario
+            </div>
+            <div class="card-content">
+                <div class="feature-item" style="margin-top: 0;">
+                    <div class="feature-icon">📋</div>
+                    <div>
+                        <strong>Resumen de obligaciones</strong><br>
+                        El empresario tiene 5 obligaciones principales en materia de EPI, complementadas con los artículos <span class="numeric-data">8</span> y <span class="numeric-data">9</span>.
+                    </div>
+                </div>
+                
+                <!-- GRID FLEX DE OBLIGACIONES -->
+                <div class="obligacion-grid">
+                    
+                    <!-- Obligación a) -->
+                    <div class="obligacion-item">
+                        <div class="obligacion-header">
+                            <span class="obligacion-icon">🔍</span>
+                            <span>a) Determinar puestos que requieren EPI</span>
+                        </div>
+                        <div class="element-details">
+                            Identificar mediante evaluación de riesgos los puestos que requieren EPI.
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>⚠️</span>
+                                    <span>Especificar</span>
+                                </div>
+                                <div class="element-details">
+                                    • Riesgo(s) a proteger<br>
+                                    • Partes del cuerpo<br>
+                                    • Tipo de EPI
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-reference" style="margin-top: 15px;">
+                            <strong>Concurrencia empresarial:</strong> RD <span class="numeric-data">171/2004</span> desarrolla: <span class="numeric-data"> art. 24 LPRL</span>:  coordinación de actividades empresariales. 
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>🔄</span>
+                                    <span>Intercambio información</span>
+                                </div>
+                                <div class="element-details">
+                                    <strong>Empresarios y autónomos en mismo centro</strong> deben compartir información sobre riesgos.
+                                </div>
+                            </div>
+                            
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>🏢</span>
+                                    <span>Empresario titular</span>
+                                </div>
+                                <div class="element-details">
+                                    Informar sobre riesgos del centro a otras empresas.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-reference" style="margin-top: 15px;">
+                            <strong>Trabajadores ETT:</strong> RD <span class="numeric-data">216/1999</span>
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>📋</span>
+                                    <span>Información a ETT</span>
+                                </div>
+                                <div class="element-details">
+                                    Empresa usuaria informa sobre riesgos y EPI necesarios.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Obligación b) -->
+                    <div class="obligacion-item">
+                        <div class="obligacion-header">
+                            <span class="obligacion-icon">✅</span>
+                            <span>b) Elegir EPI conforme a arts. 5 y 6</span>
+                        </div>
+                        <div class="element-details">
+                            Seleccionar equipo apropiado según requisitos establecidos.
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>📜</span>
+                                    <span>Artículo 5</span>
+                                </div>
+                                <div class="element-details">
+                                    Requisitos que deben cumplir los EPI.
+                                </div>
+                            </div>
+                            
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>🎯</span>
+                                    <span>Artículo 6</span>
+                                </div>
+                                <div class="element-details">
+                                    Forma adecuada de seleccionarlos.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-reference" style="margin-top: 15px;">
+                            <strong>Resultado:</strong> Especificar con detalle tipos de EPI y características.
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>📚</span>
+                                    <span>Información disponible</span>
+                                </div>
+                                <div class="element-details">
+                                    Mantener información en empresa y facilitar sobre cada equipo.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Obligación c) -->
+                    <div class="obligacion-item">
+                        <div class="obligacion-header">
+                            <span class="obligacion-icon">💰</span>
+                            <span>c) Proporcionar EPI gratuitamente</span>
+                        </div>
+                        <div class="element-details">
+                            Coste <strong>nunca</strong> recae sobre el trabajador.
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>🔄</span>
+                                    <span>Reposición</span>
+                                </div>
+                                <div class="element-details">
+                                    Cuando sea necesaria.
+                                </div>
+                            </div>
+                            
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>📏</span>
+                                    <span>EPI a medida</span>
+                                </div>
+                                <div class="element-details">
+                                    Incluye adaptaciones especiales.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-reference" style="margin: 15px 0; padding: 12px;">
+                            <strong>EJEMPLOS EPI A MEDIDA</strong><br>
+                            • Calzado ortopédico<br>
+                            • Gafas de protección graduadas
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>👞</span>
+                                    <span>Plantillas</span>
+                                </div>
+                                <div class="element-details">
+                                    NO son EPI, pero calzado adaptado para ellas SÍ.
+                                </div>
+                            </div>
+                            
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>👓</span>
+                                    <span>Gafas graduadas</span>
+                                </div>
+                                <div class="element-details">
+                                    NO única solución. Existen alternativas compatibles.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-reference" style="margin-top: 15px;">
+                            <strong>Procedimiento recomendado:</strong> Definir entrega y reposición, usar firma para acreditar.
+                        </div>
+                    </div>
+                    
+                    <!-- Obligación d) -->
+                    <div class="obligacion-item">
+                        <div class="obligacion-header">
+                            <span class="obligacion-icon">👁️</span>
+                            <span>d) Velar por uso correcto (art. 7)</span>
+                        </div>
+                        <div class="element-details">
+                            Responsabilidad <strong>no termina</strong> con la entrega.
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem" style="flex: 1 1 350px">
+                                <div class="flex-subtitle">
+                                    <span>👨‍🏫</span>
+                                    <span>Supervisión</span>
+                                </div>
+                                <div class="element-details">
+                                    Correcta realización de actividades con EPI.
+                                </div>
+                            </div>
+                            
+                            <div class="flex-subitem" style="flex: 1 1 350px">
+                                <div class="flex-subtitle">
+                                    <span>📚</span>
+                                    <span>Formación</span>
+                                </div>
+                                <div class="element-details">
+                                    Artículo 8: formación e información a trabajadores.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Obligación e) -->
+                    <div class="obligacion-item">
+                        <div class="obligacion-header">
+                            <span class="obligacion-icon">🔧</span>
+                            <span>e) Asegurar mantenimiento (art. 7)</span>
+                        </div>
+                        <div class="element-details">
+                            EPI se deterioran por uso o tiempo.
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>⚙️</span>
+                                    <span>Funcionamiento</span>
+                                </div>
+                                <div class="element-details">
+                                    Correcto según uso previsto.
+                                </div>
+                            </div>
+                            
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>🧼</span>
+                                    <span>Higiene</span>
+                                </div>
+                                <div class="element-details">
+                                    Estado higiénico adecuado.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>🔄</span>
+                                    <span>Sustituciones</span>
+                                </div>
+                                <div class="element-details">
+                                    Cuando sean necesarias.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-reference" style="margin-top: 15px;">
+                            <strong>Documentación <span class="numeric-data">art. 23 LPRL</span>:</strong>
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>📄</span>
+                                    <span>c) Control riesgo</span>
+                                </div>
+                                <div class="element-details">
+                                    Incluir en planificación preventiva.
+                                </div>
+                            </div>
+                            
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>📊</span>
+                                    <span>b) Controles periódicos</span>
+                                </div>
+                                <div class="element-details">
+                                    De condiciones de trabajo (incluyen EPI).
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-reference" style="margin-top: 15px;">
+                            <strong>Recomendación:</strong> Archivo con ficha de control.
+                        </div>
+                        
+                        <div class="flex-subgrid">
+                            <div class="flex-subitem">
+                                <div class="flex-subtitle">
+                                    <span>📅</span>
+                                    <span>Datos a incluir</span>
+                                </div>
+                                <div class="element-details">
+                                    Fechas, condiciones uso, utilizaciones.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> <!-- Fin del grid de obligaciones -->
+                
+                <div class="feature-item" style="margin-top: 30px;">
+                    <div class="feature-icon">📚</div>
+                    <div>
+                        <strong>Documentación complementaria</strong><br>
+                        Ver Apéndice 1 para esquema de obligaciones empresario/trabajador, y Apéndice 3 para modelo de ficha de control de EPI.
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <!-- Artículo 4: Criterios para el empleo de EPI -->
+            <div class="card full-width">
+                <div class="card-corner"></div>
+                <div class="card-header criterios">
+                    <span>⚖️</span> Artículo 4: Criterios para el Empleo de EPI
+                </div>
+                <div class="card-content">
+                    <div class="feature-item" style="margin-top: 0;">
+                        <div class="feature-icon">🎯</div>
+                        <div>
+                            <strong>Principio fundamental</strong><br>
+                            Los EPI deben usarse <strong>solo cuando</strong> los riesgos no puedan evitarse o limitarse suficientemente por:
+                        </div>
+                    </div>
+                    
+                    <div class="type-grid">
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>🛡️</span>
+                                Protección colectiva
+                            </div>
+                            <div class="element-details">
+                                Medios técnicos que protegen a todos los trabajadores expuestos.
+                            </div>
+                        </div>
+                        
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>📋</span>
+                                Medidas organizativas
+                            </div>
+                            <div class="element-details">
+                                Métodos o procedimientos de organización del trabajo.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="legal-reference">
+                        <strong>Documentación:</strong> La concurrencia de estas circunstancias debe constar en la documentación del artículo <span class="numeric-data">23</span> LPRL.
+                    </div>
+                    
+                    <div class="warning-box">
+                        <strong>EPI COMO ÚLTIMO RECURSO - 3 RAZONES PRINCIPALES</strong><br>
+                        1. <strong>Solo protege al usuario</strong> - Las medidas colectivas protegen a todos<br>
+                        2. <strong>Protección difícil de evaluar</strong> - Nivel real depende de ajuste, uso y mantenimiento<br>
+                        3. <strong>Puede limitar al usuario</strong> - Restringe movimientos o visibilidad
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📝</div>
+                        <div>
+                            <strong>Proceso de decisión</strong><br>
+                            Basado en evaluación de riesgos y principios de acción preventiva (artículo <span class="numeric-data">15</span> LPRL):
+                        </div>
+                    </div>
+                    
+                    <div class="pasos-list">
+                        <div class="pasos-title">
+                            <span>🔢</span>
+                            <span>Orden de prioridad</span>
+                        </div>
+                        <div class="element-details">
+                            1. Evaluación de riesgos<br>
+                            2. Medidas técnicas de protección colectiva<br>
+                            3. Medidas organizativas<br>
+                            4. EPI como última barrera (solo si 2 y 3 son insuficientes)
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📋</div>
+                        <div>
+                            <strong>Situaciones que suelen requerir EPI (lista orientativa)</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="exclusion-grid">
+                        <div class="exclusion-item">
+                            <div class="exclusion-title">
+                                <span class="exclusion-icon">⏱️</span>
+                                <span>Medida transitoria</span>
+                            </div>
+                            <div class="element-details">
+                                Mientras se implementan medidas técnicas/organizativas.
+                                <div class="legal-reference" style="margin-top: 10px;">
+                                    <strong>EXCEPCIÓN:</strong> Nunca en riesgo grave e inminente (artículo <span class="numeric-data">21</span> LPRL).
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="exclusion-item">
+                            <div class="exclusion-title">
+                                <span class="exclusion-icon">🚧</span>
+                                <span>Sin soluciones técnicas</span>
+                            </div>
+                            <div class="element-details">
+                                Cuando no existen soluciones razonables, hasta que el progreso técnico ofrezca alternativas.
+                            </div>
+                        </div>
+                        
+                        <div class="exclusion-item">
+                            <div class="exclusion-title">
+                                <span class="exclusion-icon">👂</span>
+                                <span>Exposiciones poco frecuentes/cortas</span>
+                            </div>
+                            <div class="element-details">
+                                Cuando otras medidas serían desproporcionadas (ej: protección auditiva para máquina usada ocasionalmente).
+                            </div>
+                        </div>
+                        
+                        <div class="exclusion-item">
+                            <div class="exclusion-title">
+                                <span class="exclusion-icon">🧹</span>
+                                <span>Operaciones especiales</span>
+                            </div>
+                            <div class="element-details">
+                                Limpieza, mantenimiento, reparaciones donde se anulan temporalmente sistemas de protección (ej: limpieza de sierra con protector retirado).
+                            </div>
+                        </div>
+                        
+                        <div class="exclusion-item">
+                            <div class="exclusion-title">
+                                <span class="exclusion-icon">🧪</span>
+                                <span>Indicación del fabricante</span>
+                            </div>
+                            <div class="element-details">
+                                Cuando Fichas de Datos de Seguridad o información del fabricante indiquen necesidad de EPI (artículo <span class="numeric-data">41</span> LPRL).
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="legal-reference">
+                        <strong>ANEXO III:</strong> Lista indicativa (no exhaustiva) de actividades y sectores que pueden requerir EPI.
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📄</div>
+                        <div>
+                            <strong>Documentación requerida en puestos con EPI</strong><br>
+                            Debe quedar documentado y disponible para:
+                        </div>
+                    </div>
+                    
+                    <div class="type-grid">
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>📋</span>
+                                Contenido documental
+                            </div>
+                            <div class="element-details">
+                                • Datos del riesgo<br>
+                                • EPI seleccionado<br>
+                                • Responsable de selección y control
+                            </div>
+                        </div>
+                        
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>👥</span>
+                                Destinatarios
+                            </div>
+                            <div class="element-details">
+                                • Autoridad laboral<br>
+                                • Trabajadores y representantes<br>
+                                • Servicios de prevención
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Documentación y Referencias -->
+            <div class="card full-width">
+                <div class="card-corner"></div>
+                <div class="card-header documentacion">
+                    <span>📊</span> Documentación y Referencias
+                </div>
+                <div class="card-content">
+                    <div class="feature-item" style="margin-top: 0;">
+                        <div class="feature-icon">📁</div>
+                        <div>
+                            <strong>Documentación según LPRL</strong><br>
+                            Artículo <span class="numeric-data">23</span> LPRL establece la documentación en prevención de riesgos laborales.
+                        </div>
+                    </div>
+                    
+                    <div class="type-grid">
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>📄</span>
+                                Control del riesgo con EPI
+                            </div>
+                            <div class="element-details">
+                                Incluir en planificación de la actividad preventiva el control del riesgo mediante utilización de EPI.
+                            </div>
+                        </div>
+                        
+                        <div class="type-item">
+                            <div class="type-title">
+                                <span>📊</span>
+                                Controles periódicos
+                            </div>
+                            <div class="element-details">
+                                Realizar controles periódicos de las condiciones de trabajo, que incluyen los EPI utilizados.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🔗</div>
+                        <div>
+                            <strong>Referencias normativas mencionadas</strong><br>
+                            • RD <span class="numeric-data">171/2004</span>: Coordinación actividades empresariales<br>
+                            • RD <span class="numeric-data">216/1999</span>: Trabajadores de empresas de trabajo temporal<br>
+                            • Artículo <span class="numeric-data">23</span> LPRL: Documentación en PRL<br>
+                            • Artículo <span class="numeric-data">21</span> LPRL: Riesgo grave e inminente<br>
+                            • Artículo <span class="numeric-data">41</span> LPRL: Información de fabricantes<br>
+                            • Anexo III: Actividades que pueden requerir EPI
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📚</div>
+                        <div>
+                            <strong>NTPs de referencia</strong><br>
+                            Para mayor información sobre coordinación de actividades empresariales, consultar:<br>
+                            • NTP <span class="numeric-data">918</span><br>
+                            • NTP <span class="numeric-data">919</span><br>
+                            • NTP <span class="numeric-data">1052</span><br>
+                            • NTP <span class="numeric-data">1053</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Guía basada en los Artículos 3 y 4 del RD sobre Equipos de Protección Individual</p>
+            <p>Información extraída del documento "24. EPIS Y ERAS-5-8.pdf"</p>
+        </div>
+    </div>
+</body>
+</html>
